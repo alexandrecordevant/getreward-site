@@ -3,348 +3,230 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Alexandre Cordevant accompagne les entreprises dans l'intégration de l'IA pour supprimer les tâches répétitives et gagner en rentabilité. Montpellier, Hérault.">
+<meta name="description" content="GetReward aide les dirigeants de TPE et PME à utiliser l'IA simplement, sans jargon, pour gagner des heures chaque semaine. Montpellier, Hérault.">
 <title>GetReward · Intégration IA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: colonne éditoriale unique, un "relevé d'heures" avant/après comme fil conducteur visuel */
+/* Layout : une colonne, phrases courtes, exemples "avant / avec l'IA", appel à l'action répété */
 :root{
-  --bg:#F3F5F2; --surface:#FFFFFF; --ink:#13201C; --muted:#56635E; --line:#D6DDD8;
-  --accent:#1F5BD8; --accent-soft:#E2EAFB; --gain:#1B7A4B; --strike:#9AA6A1;
+  --bg:#F5F6F2; --surface:#FFFFFF; --ink:#14201B; --muted:#55635D; --line:#DCE2DD;
+  --accent:#1F5BD8; --accent-ink:#FFFFFF; --accent-soft:#E3EBFC; --warm:#FFE9A8; --ok:#1B7A4B; --old:#8E9A95;
   --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
   --f-body:"Public Sans",ui-sans-serif,system-ui,sans-serif;
-  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0F1614; --surface:#16201D; --ink:#E7EEEA; --muted:#9AAAA3; --line:#26332F;
-  --accent:#7FA6FF; --accent-soft:#1A2744; --gain:#5FD39A; --strike:#5C6B66; color-scheme:dark}}
+  --bg:#0F1613; --surface:#17211D; --ink:#E8EEEA; --muted:#9DABA5; --line:#27332E;
+  --accent:#7EA5FF; --accent-ink:#0F1613; --accent-soft:#1B2745; --warm:#4A3F12; --ok:#62D49C; --old:#6C7A74; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0F1614; --surface:#16201D; --ink:#E7EEEA; --muted:#9AAAA3; --line:#26332F;
-  --accent:#7FA6FF; --accent-soft:#1A2744; --gain:#5FD39A; --strike:#5C6B66; color-scheme:dark}
+  --bg:#0F1613; --surface:#17211D; --ink:#E8EEEA; --muted:#9DABA5; --line:#27332E;
+  --accent:#7EA5FF; --accent-ink:#0F1613; --accent-soft:#1B2745; --warm:#4A3F12; --ok:#62D49C; --old:#6C7A74; color-scheme:dark}
 
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--f-body);margin:0}
-.wrap{max-width:68rem;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
-h1,h2,h3{font-family:var(--f-display);font-weight:700;line-height:1.08;text-wrap:balance;margin:0}
-h1{font-size:clamp(2.3rem,6vw,4.25rem);letter-spacing:-.02em}
-h2{font-size:clamp(1.7rem,3.6vw,2.4rem);letter-spacing:-.015em}
-h3{font-size:1.2rem;font-weight:500}
-p{margin:0;max-width:62ch}
-a{color:var(--accent)}
-.label{font:500 .75rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--f-body);margin:0}
+.wrap{max-width:62rem;margin:0 auto;padding-inline:clamp(16px,4vw,32px)}
+h1,h2,h3{font-family:var(--f-display);line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.2rem,6.4vw,4rem);font-weight:800;letter-spacing:-.025em}
+h2{font-size:clamp(1.6rem,3.8vw,2.3rem);font-weight:700;letter-spacing:-.015em}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0;max-width:60ch}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+mark{background:var(--warm);color:inherit;padding:0 .2em;border-radius:4px}
 
-/* nav */
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
-.brand{font:700 1.05rem/1 var(--f-display);color:var(--ink);text-decoration:none}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px}
+.brand{font:800 1.15rem/1 var(--f-display);color:var(--ink);text-decoration:none}
 .brand span{color:var(--accent)}
-.brand small{display:block;margin-top:4px;font:500 .68rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:.95rem}
-nav ul a{color:var(--muted);text-decoration:none}
-nav ul a:hover{color:var(--ink)}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--surface);font-weight:600;font-size:.95rem;padding:11px 18px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;font-family:var(--f-body)}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-@media (max-width:760px){nav ul{display:none}}
+.brand small{display:block;margin-top:4px;font:500 .72rem/1 var(--f-body);color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:var(--accent-ink);font:700 1rem/1 var(--f-body);padding:14px 22px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;white-space:nowrap}
+.btn.small{padding:10px 16px;font-size:.92rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
 
-section{padding-block:clamp(56px,9vw,104px);border-bottom:1px solid var(--line)}
-.head{display:grid;gap:14px;margin-bottom:40px}
+section{padding-block:clamp(48px,8vw,88px)}
+.eyebrow{font:600 .8rem/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,64px);align-items:center;padding-block:clamp(48px,8vw,96px)}
-.hero > *{min-width:0}
-.hero h1 em{font-style:normal;color:var(--accent)}
-.hero .lead{font-size:1.2rem;color:var(--muted);margin-top:22px}
-.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-@media (max-width:860px){.hero{grid-template-columns:1fr}}
+.hero{padding-block:clamp(44px,8vw,88px) clamp(40px,6vw,64px)}
+.hero .lead{font-size:clamp(1.1rem,2.2vw,1.3rem);color:var(--muted);margin-top:20px;max-width:46ch}
+.hero .ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:30px}
+.hero .reassure{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;padding:0;list-style:none;color:var(--muted);font-size:.95rem}
+.hero .reassure li::before{content:"✓";color:var(--ok);font-weight:700;margin-right:6px}
 
-/* relevé d'heures */
-.sheet{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;font-family:var(--f-mono);font-size:.85rem;box-shadow:0 18px 40px -28px rgba(19,32,28,.35)}
-.sheet .top{display:flex;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px dashed var(--line);margin-bottom:6px}
-.sheet table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
-.sheet th{font-weight:500;color:var(--muted);text-align:right;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;padding:8px 0}
-.sheet th:first-child{text-align:left}
-.sheet td{padding:9px 0;border-bottom:1px solid var(--line);text-align:right}
-.sheet td:first-child{text-align:left;font-family:var(--f-body);font-size:.92rem}
-.sheet td.before{color:var(--strike);text-decoration:line-through}
-.sheet td.after{color:var(--gain);font-weight:500}
-.sheet tfoot td{border:0;padding-top:14px;font-weight:500}
-.sheet tfoot td.after{font-size:1.05rem}
-.sheet .note{margin-top:12px;color:var(--muted);font-size:.72rem}
+/* douleurs */
+.pains{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}
+.pain{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;font-size:1.02rem}
+.pain strong{display:block;font-family:var(--f-display);font-size:1.1rem;margin-bottom:4px}
+.pains-answer{margin-top:24px;font-size:1.15rem;font-weight:600}
+@media (max-width:720px){.pains{grid-template-columns:1fr}}
 
-/* offres */
-.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.offer{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;display:grid;gap:12px;align-content:start}
-.offer.main{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
-.offer .tag{justify-self:start;font:500 .72rem/1 var(--f-mono);background:var(--accent-soft);color:var(--accent);padding:6px 9px;border-radius:999px}
-.offer ul{margin:4px 0 0;padding-left:18px;color:var(--muted);display:grid;gap:4px;font-size:.97rem}
-@media (max-width:900px){.offers{grid-template-columns:1fr}}
+/* exemples */
+.examples{display:grid;gap:16px;margin-top:28px}
+.ex{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;grid-template-columns:12rem 1fr 1fr;gap:20px;align-items:start}
+.ex > *{min-width:0}
+.ex .who{font:700 .8rem/1.3 var(--f-body);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.ex .who h3{margin-top:6px;text-transform:none;letter-spacing:0;color:var(--ink);font-size:1.12rem}
+.ex .col span{display:block;font:700 .75rem/1 var(--f-body);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.ex .before span{color:var(--old)}
+.ex .after span{color:var(--ok)}
+.ex .before p{color:var(--muted)}
+.ex .gain{grid-column:2 / -1;font-weight:700;color:var(--ok);border-top:1px dashed var(--line);padding-top:12px}
+@media (max-width:760px){.ex{grid-template-columns:1fr;gap:12px}.ex .gain{grid-column:auto}}
+.note{margin-top:16px;color:var(--muted);font-size:.92rem}
 
-/* tâches */
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
-.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px;font-size:.95rem}
+/* étapes */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;gap:10px;align-content:start}
+.step .n{width:36px;height:36px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font:800 1rem/1 var(--f-display)}
+.step p{color:var(--muted)}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
 
-/* méthode */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s;border-top:2px solid var(--ink)}
-.step{padding:22px 22px 0 0;display:grid;gap:10px;align-content:start}
-.step + .step{padding-left:22px;border-left:1px solid var(--line)}
-.step .n{font:500 .8rem/1 var(--f-mono);color:var(--accent)}
-.step p{color:var(--muted);font-size:.97rem}
-@media (max-width:860px){.steps{grid-template-columns:1fr 1fr;row-gap:28px}.step:nth-child(3){padding-left:0;border-left:0}}
-@media (max-width:520px){.steps{grid-template-columns:1fr}.step + .step{padding-left:0;border-left:0}}
+/* prix + moi */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.duo > div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:12px;align-content:start}
+.price-line{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:12px}
+.price-line:last-of-type{border-bottom:0;padding-bottom:0}
+.price-line b{font:800 1.5rem/1 var(--f-display);white-space:nowrap}
+.price-line small{color:var(--muted);display:block}
+.me ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--muted)}
+.big25{font:800 3rem/1 var(--f-display);color:var(--accent)}
+@media (max-width:760px){.duo{grid-template-columns:1fr}}
 
-/* profil */
-.profile{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,5vw,64px)}
-.profile > *{min-width:0}
-.profile .intro{display:grid;gap:18px;align-content:start}
-.cv{display:grid;gap:0}
-.cv-row{display:grid;grid-template-columns:11rem 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
-.cv-row:first-child{padding-top:0}
-.cv-row .k{font:500 .78rem/1.5 var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-.cv-row .v{display:grid;gap:4px}
-.cv-row .v strong{font-weight:600}
-.cv-row .v span{color:var(--muted);font-size:.96rem}
-@media (max-width:860px){.profile{grid-template-columns:1fr}}
-@media (max-width:520px){.cv-row{grid-template-columns:1fr;gap:6px}}
-
-/* déjà fait */
-.done{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.case{border-top:2px solid var(--ink);padding-top:18px;display:grid;gap:10px;align-content:start}
-.case p{color:var(--muted)}
-.case .res{font:500 .82rem/1.4 var(--f-mono);color:var(--gain)}
-@media (max-width:760px){.done{grid-template-columns:1fr}}
-
-/* tarifs + contact */
-.price{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.price > div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;display:grid;gap:10px;align-content:start}
-.amount{font:700 2.4rem/1 var(--f-display);font-variant-numeric:tabular-nums}
-.amount small{font:400 1rem var(--f-body);color:var(--muted)}
-@media (max-width:760px){.price{grid-template-columns:1fr}}
-
-.contact{background:var(--ink);color:var(--bg);border-radius:20px;padding:clamp(28px,5vw,56px);display:grid;gap:18px}
-.contact p{color:color-mix(in srgb,var(--bg) 75%,transparent)}
-.mail{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:8px}
-.mail code{font:500 1.05rem var(--f-mono);user-select:all;background:color-mix(in srgb,var(--bg) 10%,transparent);padding:10px 14px;border-radius:10px;overflow-wrap:anywhere}
-.contact .btn{background:var(--bg);color:var(--ink)}
-.years{display:flex;align-items:baseline;gap:12px;color:var(--muted);font-size:.98rem;max-width:none}
-.years span{font:700 3rem/1 var(--f-display);color:var(--accent);font-variant-numeric:tabular-nums}
-.contact-lines{display:grid;gap:12px;margin-top:8px}
-.copied{font:500 .8rem var(--f-mono);color:var(--bg)}
-section.last{border-bottom:0}
-footer{padding-block:32px;color:var(--muted);font-size:.88rem}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+/* contact */
+.contact{background:var(--accent);color:var(--accent-ink);border-radius:22px;padding:clamp(28px,5vw,52px);display:grid;gap:16px}
+.contact p{opacity:.9}
+.lines{display:grid;gap:12px;margin-top:6px}
+.line{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.line code{font:700 clamp(1.15rem,3vw,1.5rem)/1.2 var(--f-display);user-select:all;overflow-wrap:anywhere}
+.contact .btn{background:var(--accent-ink);color:var(--accent);padding:10px 16px;font-size:.9rem}
+.copied{font-weight:600}
+footer{padding-block:28px;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 </style>
 </head>
 <body>
 
-<nav>
+<header class="top">
   <div class="wrap">
     <a class="brand" href="#top">GetReward<span>.</span><small>Intégration IA · Conduite de projet</small></a>
-    <ul>
-      <li><a href="#offre">Offre</a></li>
-      <li><a href="#methode">Méthode</a></li>
-      <li><a href="#profil">Profil</a></li>
-      <li><a href="#tarifs">Tarifs</a></li>
-    </ul>
-    <a class="btn" href="#contact">Me contacter</a>
+    <a class="btn small" href="tel:+33618487955">06 18 48 79 55</a>
   </div>
-</nav>
-
-<header class="wrap hero" id="top">
-  <div>
-    <p class="label">Intégration IA · Conduite de projet · Montpellier / Hérault</p>
-    <h1 style="margin-top:16px">Moins de tâches répétitives. <em>Plus de marge.</em></h1>
-    <p class="lead">J'aide les entreprises à utiliser l'IA là où elle rapporte vraiment&nbsp;: l'IA prépare les saisies, relances et documents répétitifs, votre équipe relit et valide. Elle passe moins de temps sur l'exécution et plus sur ce qui crée de la valeur.</p>
-    <div class="ctas">
-      <a class="btn" href="#contact">Parler de votre activité</a>
-      <a class="btn ghost" href="#offre">Voir l'offre</a>
-    </div>
-  </div>
-
-  <aside class="sheet" aria-label="Exemple de relevé d'heures avant et après automatisation">
-    <div class="top"><span>Relevé hebdomadaire · équipe de 3</span><span class="label">Exemple</span></div>
-    <table>
-      <thead><tr><th>Tâche</th><th>Avant</th><th>Après</th></tr></thead>
-      <tbody>
-        <tr><td>Saisie et rapprochement des factures</td><td class="before">6 h</td><td class="after">1 h</td></tr>
-        <tr><td>Réponses aux e-mails récurrents</td><td class="before">5 h</td><td class="after">1,5 h</td></tr>
-        <tr><td>Comptes rendus de réunion</td><td class="before">3 h</td><td class="after">0,5 h</td></tr>
-        <tr><td>Reporting et tableaux Excel</td><td class="before">4 h</td><td class="after">1 h</td></tr>
-        <tr><td>Relances clients et devis</td><td class="before">3 h</td><td class="after">0,5 h</td></tr>
-      </tbody>
-      <tfoot><tr><td>Total</td><td class="before">21 h</td><td class="after">4,5 h</td></tr></tfoot>
-    </table>
-    <p class="note">Chiffres illustratifs. Le temps « après » inclut la relecture et la validation par votre équipe. Le diagnostic chiffre vos propres gains.</p>
-  </aside>
 </header>
 
-<section id="offre">
-  <div class="wrap">
-    <div class="head">
-      <p class="label">Offre</p>
-      <h2>Un accompagnement guidé par un seul critère&nbsp;: la rentabilité</h2>
-      <p style="color:var(--muted)">Pas d'IA pour faire joli. Chaque usage proposé doit faire gagner du temps, réduire des coûts ou augmenter le chiffre d'affaires.</p>
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Pour les dirigeants de TPE et PME</p>
+      <h1>L'IA, tout le monde en parle.<br>Vous ne savez pas <mark>par où commencer</mark>&nbsp;?</h1>
+      <p class="lead">Je vous montre, simplement et sans jargon, ce que l'IA peut faire dans <b>votre</b> entreprise. Puis je la mets en place pour vous. Résultat&nbsp;: des heures gagnées chaque semaine.</p>
+      <div class="ctas">
+        <a class="btn" href="#contact">M'appeler pour en parler</a>
+        <a class="btn ghost" href="#exemples">Voir des exemples concrets</a>
+      </div>
+      <ul class="reassure">
+        <li>Aucune connaissance technique nécessaire</li>
+        <li>Vous gardez la main sur chaque décision</li>
+        <li>Prix annoncé avant de commencer</li>
+      </ul>
     </div>
-    <div class="offers">
-      <article class="offer main">
-        <span class="tag">À l'heure</span>
-        <h3>Accompagnement IA</h3>
-        <p>Je travaille avec vous et vos équipes pour repérer les tâches à automatiser et adopter les bons outils au quotidien.</p>
-        <ul>
-          <li>Cartographie de vos process</li>
-          <li>Priorisation selon le gain réel</li>
-          <li>Prise en main d'outils comme ChatGPT, Claude ou Copilot</li>
-          <li>Bonnes pratiques et confidentialité des données</li>
-        </ul>
-      </article>
-      <article class="offer">
-        <span class="tag">Sur devis</span>
-        <h3>Mise en place d'outils</h3>
-        <p>Je conçois et installe les automatisations retenues, connectées à vos outils existants.</p>
-        <ul>
-          <li>Assistants IA sur mesure</li>
-          <li>Automatisations entre vos logiciels</li>
-          <li>Tableaux de bord et reporting automatiques</li>
-          <li>Développement web dédié si besoin</li>
-        </ul>
-      </article>
-      <article class="offer">
-        <span class="tag">Équipes</span>
-        <h3>Formation</h3>
-        <p>Des sessions concrètes, sur vos cas d'usage, pour que l'IA devienne un réflexe dans l'équipe.</p>
-        <ul>
-          <li>Rédiger des demandes efficaces</li>
-          <li>Ateliers par métier</li>
-          <li>Guides internes réutilisables</li>
-        </ul>
-      </article>
-    </div>
+  </section>
 
-    <div class="head" style="margin:56px 0 0">
-      <h3>Les tâches que l'on automatise le plus souvent</h3>
-      <div class="chips">
-        <span class="chip">Saisie de factures</span><span class="chip">Tri des e-mails</span><span class="chip">Comptes rendus</span>
-        <span class="chip">Relances clients</span><span class="chip">Reporting mensuel</span><span class="chip">Plannings</span>
-        <span class="chip">Rédaction de devis</span><span class="chip">Recherche documentaire</span><span class="chip">Onboarding RH</span>
-        <span class="chip">Publications réseaux sociaux</span>
+  <section style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">Vous vous reconnaissez&nbsp;?</p>
+      <h2>Vous n'êtes pas seul à être perdu</h2>
+      <div class="pains">
+        <div class="pain"><strong>« J'ai essayé ChatGPT… et après&nbsp;? »</strong>Vous avez testé, mais vous ne voyez pas comment l'utiliser au quotidien.</div>
+        <div class="pain"><strong>« Je passe mes journées dans l'administratif »</strong>Mails, relances, devis, plannings, dossiers&nbsp;: le temps file et rien n'avance.</div>
+        <div class="pain"><strong>« Agents IA, automatisation… je n'y comprends rien »</strong>Trop de mots, trop d'outils, aucune idée de ce qui vaut le coup.</div>
+        <div class="pain"><strong>« J'ai peur de faire une bêtise »</strong>Vos données clients et salariés, vous voulez les protéger.</div>
+      </div>
+      <p class="pains-answer">C'est exactement mon travail&nbsp;: traduire l'IA en actions simples, utiles et rentables pour vous.</p>
+    </div>
+  </section>
+
+  <section id="exemples" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">Concrètement</p>
+      <h2>Ce que ça change dans votre quotidien</h2>
+      <div class="examples">
+        <article class="ex">
+          <div class="who">Réseau de crèches<h3>Embaucher une salariée</h3></div>
+          <div class="col before"><span>Avant</span><p>Fiche à envoyer, pièces à réclamer, contrat à remplir, mutuelle, visite médicale, relances… tout à la main.</p></div>
+          <div class="col after"><span>Avec l'IA</span><p>Une seule saisie. L'IA prépare le dossier, le contrat et les relances. Vous relisez et validez.</p></div>
+          <p class="gain">Un dossier suivi de bout en bout, sans rien oublier</p>
+        </article>
+        <article class="ex">
+          <div class="who">Société de services<h3>Prospecter et relancer</h3></div>
+          <div class="col before"><span>Avant</span><p>Des contacts dans un carnet, des relances oubliées, des devis envoyés trop tard.</p></div>
+          <div class="col after"><span>Avec l'IA</span><p>Chaque contact est suivi. Les relances et les devis sont préparés au bon moment. Vous n'avez qu'à envoyer.</p></div>
+          <p class="gain">Moins de clients perdus faute de relance</p>
+        </article>
+        <article class="ex">
+          <div class="who">Artisan, commerce<h3>Factures et mails</h3></div>
+          <div class="col before"><span>Avant</span><p>Saisir les factures fournisseurs, répondre aux mêmes questions par mail, tous les jours.</p></div>
+          <div class="col after"><span>Avec l'IA</span><p>Les factures sont lues et rangées automatiquement. Les réponses aux mails courants sont pré-rédigées.</p></div>
+          <p class="gain">Plusieurs heures par semaine rendues à votre métier</p>
+        </article>
+      </div>
+      <p class="note">L'IA prépare, vous gardez toujours la validation finale. Les gains réels dépendent de votre activité&nbsp;: on les chiffre ensemble au départ.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">Comment ça se passe</p>
+      <h2>Trois étapes, sans prise de tête</h2>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h3>On en parle</h3><p>Vous m'expliquez votre activité et ce qui vous prend du temps. Un simple appel suffit pour commencer.</p></div>
+        <div class="step"><span class="n">2</span><h3>Je vous dis où gagner du temps</h3><p>J'observe votre quotidien et je vous remets une liste claire&nbsp;: quoi automatiser, combien ça coûte, combien ça rapporte.</p></div>
+        <div class="step"><span class="n">3</span><h3>Je mets en place et je forme</h3><p>J'installe les outils, je forme votre équipe et on vérifie ensemble le temps réellement gagné.</p></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="methode">
-  <div class="wrap">
-    <div class="head">
-      <p class="label">Méthode</p>
-      <h2>Quatre étapes, des résultats mesurés</h2>
-    </div>
-    <div class="steps">
-      <div class="step"><span class="n">01 · Diagnostic</span><h3>Comprendre votre activité</h3><p>Entretiens avec les équipes et relevé du temps passé sur chaque tâche.</p></div>
-      <div class="step"><span class="n">02 · Priorisation</span><h3>Choisir ce qui rapporte</h3><p>Chaque piste est chiffrée&nbsp;: heures gagnées, coût, délai. On commence par les gains rapides.</p></div>
-      <div class="step"><span class="n">03 · Mise en place</span><h3>Déployer et former</h3><p>Installation des outils, tests avec les utilisateurs et formation de l'équipe. Chaque automatisation prévoit une étape de relecture humaine.</p></div>
-      <div class="step"><span class="n">04 · Mesure</span><h3>Vérifier le gain</h3><p>Comparaison avant / après et ajustements pour que les gains durent.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="profil">
-  <div class="wrap profile">
-    <div class="intro">
-      <p class="label">Profil</p>
-      <h2>Un développeur qui utilise l'IA tous les jours, pas un théoricien</h2>
-      <p class="years"><span>25</span> ans d'expérience en développement et en direction technique</p>
-      <p style="color:var(--muted)">Je suis Alexandre Cordevant, développeur depuis 25 ans, aujourd'hui indépendant et gérant de l'EURL GETREWARD, basé à Saint-Georges-d'Orques près de Montpellier. Je conçois des applications web et j'ai intégré l'IA au cœur de ma propre façon de travailler. C'est cette expérience de terrain que j'apporte à vos équipes.</p>
-    </div>
-    <div class="cv">
-      <div class="cv-row"><span class="k">Aujourd'hui</span><div class="v"><strong>Tech lead freelance dans le secteur bancaire</strong><span>Pilotage technique et accompagnement d'équipes de développement dans un environnement exigeant.</span></div></div>
-      <div class="cv-row"><span class="k">Web</span><div class="v"><strong>Applications Next.js</strong><span>Conception et développement d'applications web modernes, de la maquette à la mise en production.</span></div></div>
-      <div class="cv-row"><span class="k">Data &amp; marketing</span><div class="v"><strong>AdTech et tracking</strong><span>Tag management (Commander Act), tracking server-side, Google Enhanced Conversions, Consent Mode.</span></div></div>
-      <div class="cv-row"><span class="k">IA</span><div class="v"><strong>Agents et workflows IA en production</strong><span>Développement assisté par IA, assistants spécialisés sur mesure, automatisation de tâches de conception et d'audit.</span></div></div>
-      <div class="cv-row"><span class="k">Entrepreneur</span><div class="v"><strong>Gérant d'EURL et studio de jeux</strong><span>Je connais les contraintes d'un chef d'entreprise&nbsp;: temps, trésorerie, rentabilité.</span></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="realisations">
-  <div class="wrap">
-    <div class="head">
-      <p class="label">Déjà fait</p>
-      <h2>J'applique d'abord l'IA à mes propres activités</h2>
-    </div>
-    <div class="done">
-      <article class="case">
-        <h3>Un studio de jeux vidéo piloté avec l'IA</h3>
-        <p>Pour mon studio DobiGames, j'ai bâti une chaîne de production où l'IA écrit, relit et teste le code de plusieurs jeux en parallèle, sur une architecture commune.</p>
-        <span class="res">→ plusieurs jeux développés et maintenus seul</span>
-      </article>
-      <article class="case">
-        <h3>Des assistants IA spécialisés sur mesure</h3>
-        <p>J'ai créé mes propres assistants dédiés à des métiers précis&nbsp;: stratégie de monétisation, débogage, marketing sur les réseaux sociaux.</p>
-        <span class="res">→ des tâches expertes réalisées en minutes</span>
-      </article>
-      <article class="case">
-        <h3>Audits automatisés</h3>
-        <p>Audit complet de l'économie d'un jeu avant lancement, organisé par priorités, avec recalibrage des paramètres sensibles.</p>
-        <span class="res">→ un rapport structuré au lieu de jours d'analyse</span>
-      </article>
-      <article class="case">
-        <h3>Gestion administrative et patrimoniale</h3>
-        <p>Modèles financiers, analyses juridiques, comparatifs et dossiers administratifs préparés avec l'IA pour ma propre entreprise.</p>
-        <span class="res">→ moins de temps sur l'administratif, plus sur le métier</span>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="tarifs">
-  <div class="wrap">
-    <div class="head">
-      <p class="label">Tarifs</p>
-      <h2>Simple et transparent</h2>
-    </div>
-    <div class="price">
-      <div>
-        <h3>Accompagnement</h3>
-        <p class="amount">100&nbsp;€ <small>HT / heure</small></p>
-        <p style="color:var(--muted)">Facturé au temps réellement passé. Idéal pour démarrer avec un diagnostic de quelques heures.</p>
-      </div>
-      <div>
-        <h3>Mise en place d'outils</h3>
-        <p class="amount">Sur devis</p>
-        <p style="color:var(--muted)">Un prix fixe par projet, établi après le diagnostic, avec le gain attendu chiffré.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="last">
-  <div class="wrap">
-    <div class="contact">
-      <p class="label" style="color:inherit;opacity:.7">Contact</p>
-      <h2>Combien d'heures votre équipe perd-elle chaque semaine&nbsp;?</h2>
-      <p>Écrivez-moi en quelques lignes ce que fait votre entreprise. Je vous réponds avec les premières pistes d'automatisation, sans engagement.</p>
-      <div class="contact-lines">
-        <div class="mail">
-          <code id="email">getrewardfr@gmail.com</code>
-          <button class="btn" type="button" data-copy="email">Copier l'e-mail</button>
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="duo">
+        <div>
+          <p class="eyebrow" style="margin:0">Tarifs clairs</p>
+          <div class="price-line"><div>Conseil et accompagnement<small>Au temps passé</small></div><b>100&nbsp;€&nbsp;HT/h</b></div>
+          <div class="price-line"><div>Mise en place des outils<small>Prix fixe, annoncé avant de commencer</small></div><b>Sur devis</b></div>
         </div>
-        <div class="mail">
-          <code id="tel">06 18 48 79 55</code>
-          <button class="btn" type="button" data-copy="tel">Copier le numéro</button>
+        <div class="me">
+          <p class="eyebrow" style="margin:0">Qui suis-je&nbsp;?</p>
+          <p><b>Alexandre Cordevant</b>, fondateur de GetReward, près de Montpellier.</p>
+          <p><span class="big25">25</span> ans dans l'informatique</p>
+          <ul>
+            <li>Tech lead pour une grande banque</li>
+            <li>J'utilise l'IA tous les jours dans mes propres projets</li>
+            <li>Je parle simplement, pas en jargon</li>
+          </ul>
         </div>
-        <span class="copied" id="copied" hidden>Copié</span>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact">
+        <h2>Parlons de votre entreprise</h2>
+        <p>Appelez-moi ou écrivez-moi en deux lignes. Je vous dis honnêtement si l'IA peut vous faire gagner du temps, et où.</p>
+        <div class="lines">
+          <div class="line"><code id="tel">06 18 48 79 55</code><button class="btn" type="button" data-copy="tel">Copier</button></div>
+          <div class="line"><code id="email">getrewardfr@gmail.com</code><button class="btn" type="button" data-copy="email">Copier</button></div>
+          <span class="copied" id="copied" hidden>Copié</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
   <div class="wrap">
-    <span>GetReward · Alexandre Cordevant · EURL GETREWARD</span>
-    <span>06 18 48 79 55 · getrewardfr@gmail.com · Saint-Georges-d'Orques, Hérault</span>
+    <span>GetReward · EURL GETREWARD · Alexandre Cordevant</span>
+    <span>Saint-Georges-d'Orques, Hérault</span>
   </div>
 </footer>
 
@@ -354,7 +236,7 @@ document.querySelectorAll('[data-copy]').forEach(function(b){
     var el = document.getElementById(b.dataset.copy), ok = document.getElementById('copied');
     function done(){ ok.hidden = false; setTimeout(function(){ ok.hidden = true; }, 2000); }
     function sel(){ var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
-    try { navigator.clipboard.writeText(el.textContent.replace(/\s/g, b.dataset.copy === 'tel' ? '' : '')).then(done).catch(sel); } catch(e){ sel(); }
+    try { navigator.clipboard.writeText(el.textContent.replace(/\s/g, '')).then(done).catch(sel); } catch(e){ sel(); }
   });
 });
 </script>
