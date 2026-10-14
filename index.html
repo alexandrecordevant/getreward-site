@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="GetReward aide les dirigeants de TPE et PME à utiliser l'IA simplement, sans jargon, pour gagner des heures chaque semaine. Montpellier, Hérault.">
 <title>GetReward · Intégration IA</title>
+<link rel="canonical" href="https://getreward.pro/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600;700&display=swap">
@@ -42,6 +43,10 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;g
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:var(--accent-ink);font:700 1rem/1 var(--f-body);padding:14px 22px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;white-space:nowrap}
 .btn.small{padding:10px 16px;font-size:.92rem}
 .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+header.top nav{display:flex;align-items:center;gap:clamp(10px,2.5vw,20px)}
+.navlink{font:600 .95rem/1 var(--f-body);color:var(--ink);text-decoration:none;white-space:nowrap}
+.navlink:hover{color:var(--accent)}
+@media (max-width:420px){.brand small{display:none}}
 
 section{padding-block:clamp(48px,8vw,88px)}
 .eyebrow{font:600 .8rem/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
@@ -73,6 +78,12 @@ section{padding-block:clamp(48px,8vw,88px)}
 .ex .gain{grid-column:2 / -1;font-weight:700;color:var(--ok);border-top:1px dashed var(--line);padding-top:12px}
 @media (max-width:760px){.ex{grid-template-columns:1fr;gap:12px}.ex .gain{grid-column:auto}}
 .note{margin-top:16px;color:var(--muted);font-size:.92rem}
+
+/* spécialité micro-crèches */
+.spec{background:var(--accent-soft);border:1px solid var(--line);border-radius:22px;padding:clamp(24px,4vw,40px);display:grid;grid-template-columns:1fr auto;gap:20px 32px;align-items:center}
+.spec > *{min-width:0}
+.spec p:not(.eyebrow){margin-top:12px;color:var(--muted);font-size:1.1rem}
+@media (max-width:760px){.spec{grid-template-columns:1fr}.spec .btn{justify-self:start}}
 
 /* étapes */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;counter-reset:s}
@@ -110,7 +121,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top">GetReward<span>.</span><small>Intégration IA · Conduite de projet</small></a>
-    <a class="btn small" href="tel:+33618487955">06 18 48 79 55</a>
+    <nav aria-label="Navigation principale">
+      <a class="navlink" href="/micro-creches/">Micro-crèches</a>
+      <a class="btn small" href="tel:+33618487955">06 18 48 79 55</a>
+    </nav>
   </div>
 </header>
 
@@ -171,6 +185,19 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         </article>
       </div>
       <p class="note">L'IA prépare, vous gardez toujours la validation finale. Les gains réels dépendent de votre activité&nbsp;: on les chiffre ensemble au départ.</p>
+    </div>
+  </section>
+
+  <section id="micro-creches" style="padding-top:0">
+    <div class="wrap">
+      <div class="spec">
+        <div>
+          <p class="eyebrow">Offre dédiée</p>
+          <h2>Spécialiste des micro-crèches</h2>
+          <p>Remplir vos places, recruter plus vite, alléger l'administratif&nbsp;: l'IA au service des gestionnaires de micro-crèches.</p>
+        </div>
+        <a class="btn" href="/micro-creches/">Découvrir l'offre →</a>
+      </div>
     </div>
   </section>
 
