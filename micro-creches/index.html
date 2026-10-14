@@ -1,0 +1,225 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>L'IA pour les micro-crèches</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;700;800&display=swap">
+<style>
+/* Layout : une colonne joyeuse, 3 grosses cartes colorées au centre, tout se lit en 30 secondes */
+:root{
+  --bg:#FFFAF0; --surface:#FFFFFF; --ink:#26244A; --muted:#5E5B7E; --line:#EFE6D6;
+  --sun:#FFC52E; --sun-soft:#FFF1C2;
+  --coral:#FF7657; --coral-soft:#FFE2DA;
+  --sky:#3FB4E8; --sky-soft:#D9F1FC;
+  --mint:#2DC596; --mint-soft:#D5F6EA;
+  --hero:#FFE38A;
+  --f-display:"Baloo 2","Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Nunito","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#17162B; --surface:#22203D; --ink:#F7F3FF; --muted:#BDB8DA; --line:#35325A;
+  --sun:#FFC940; --sun-soft:#3E3517; --coral:#FF8A6E; --coral-soft:#43251F;
+  --sky:#5CC4F0; --sky-soft:#173547; --mint:#46D6A8; --mint-soft:#163B31; --hero:#2A2747; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#17162B; --surface:#22203D; --ink:#F7F3FF; --muted:#BDB8DA; --line:#35325A;
+  --sun:#FFC940; --sun-soft:#3E3517; --coral:#FF8A6E; --coral-soft:#43251F;
+  --sky:#5CC4F0; --sky-soft:#173547; --mint:#46D6A8; --mint-soft:#163B31; --hero:#2A2747; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--f-display);line-height:1.05;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+.band{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:clamp(48px,7vw,84px)}
+.wrap{max-width:1040px;margin-inline:auto;display:grid;gap:clamp(24px,4vw,40px)}
+.center{text-align:center;justify-items:center}
+h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
+.sub{color:var(--muted);font-size:1.12rem;max-width:56ch}
+
+/* HERO */
+.hero{background:var(--hero);position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:1}
+.brand{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:1.25rem;background:var(--surface);padding:6px 16px 6px 8px;border-radius:99px;box-shadow:0 6px 18px -10px rgba(38,36,74,.4)}
+.brand i{width:28px;height:28px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-style:normal;font-size:.95rem}
+.hero h1{font-size:clamp(2.6rem,7.5vw,5rem);font-weight:800;max-width:14ch}
+.hero h1 .hl{background:linear-gradient(transparent 58%,var(--coral) 58%,var(--coral) 88%,transparent 88%);padding:0 .1em}
+.hero .sub{color:var(--ink);font-size:1.25rem}
+.bubbles span{position:absolute;border-radius:50%;opacity:.9}
+.bubbles span:nth-child(1){width:180px;height:180px;background:var(--coral);right:-40px;top:-50px}
+.bubbles span:nth-child(2){width:90px;height:90px;background:var(--sky);right:140px;bottom:30px}
+.bubbles span:nth-child(3){width:46px;height:46px;background:var(--mint);right:60px;bottom:140px}
+.bubbles span:nth-child(4){width:26px;height:26px;background:var(--surface);left:52%;top:40px}
+@media (prefers-reduced-motion:no-preference){
+  .bubbles span{animation:bob 6s ease-in-out infinite}
+  .bubbles span:nth-child(2){animation-delay:-2s}.bubbles span:nth-child(3){animation-delay:-4s}
+  @keyframes bob{50%{transform:translateY(-12px)}}
+}
+@media(max-width:640px){.bubbles span:nth-child(2){right:-20px;bottom:-20px}.bubbles span:nth-child(3){display:none}}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);font-family:var(--f-display);font-weight:700;font-size:1.1rem;padding:12px 24px;border-radius:99px;text-decoration:none}
+.btn:focus-visible,.copy:focus-visible,a:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+
+/* 3 CARTES */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border-radius:28px;padding:28px 24px;display:grid;gap:12px;align-content:start;min-width:0}
+.card .emo{font-size:2.6rem;line-height:1}
+.card h3{font-size:1.9rem;font-weight:800}
+.card .pb{font-weight:800}
+.card ul{margin:0;padding-left:1.1em;display:grid;gap:6px}
+.card .win{margin-top:4px;background:var(--surface);border-radius:16px;padding:12px 14px;font-weight:800}
+.c1{background:var(--sun-soft)} .c1 .win{color:var(--ink)} .c1 h3{color:#B37A00}
+.c2{background:var(--sky-soft)} .c2 h3{color:#0F7FB3}
+.c3{background:var(--mint-soft)} .c3 h3{color:#13875F}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .c1 h3{color:var(--sun)}:root:not([data-theme="light"]) .c2 h3{color:var(--sky)}:root:not([data-theme="light"]) .c3 h3{color:var(--mint)}}
+:root[data-theme="dark"] .c1 h3{color:var(--sun)}:root[data-theme="dark"] .c2 h3{color:var(--sky)}:root[data-theme="dark"] .c3 h3{color:var(--mint)}
+@media(max-width:860px){.cards{grid-template-columns:1fr}}
+
+/* ÉTAPES */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;justify-items:center;text-align:center;gap:8px}
+.steps li::before{content:counter(s);width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:1.6rem;color:#26244A;background:var(--sun)}
+.steps li:nth-child(2)::before{background:var(--coral)}
+.steps li:nth-child(3)::before{background:var(--mint)}
+.steps h3{font-size:1.4rem}
+.steps p{color:var(--muted)}
+@media(max-width:700px){.steps{grid-template-columns:1fr}}
+
+/* PROMESSES */
+.chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.chip{background:var(--surface);border:2px solid var(--line);border-radius:99px;padding:10px 18px;font-weight:800}
+.chip b{color:var(--coral)}
+
+/* PILOTE */
+.pilot{background:var(--coral);color:#fff}
+.pilot .wrap{grid-template-columns:auto 1fr;align-items:center}
+.pilot .big{font-size:4rem;line-height:1}
+.pilot h2{font-size:clamp(1.8rem,4vw,2.5rem)}
+.pilot p{font-size:1.15rem;font-weight:700;margin-top:6px}
+@media(max-width:640px){.pilot .wrap{grid-template-columns:1fr;text-align:center;justify-items:center}}
+
+/* DÉJÀ EN PLACE */
+.links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.links a{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 18px;text-decoration:none;font-weight:800;display:grid;gap:2px;min-width:0}
+.links a span{font-weight:600;color:var(--muted);font-size:.9rem}
+.links a:hover{border-color:var(--sky)}
+
+/* CONTACT */
+.contact{background:var(--ink);color:var(--bg)}
+.contact .sub{color:var(--bg);opacity:.85}
+.cbox{display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:12px 14px}
+.cbox b{font-size:1.15rem;user-select:all;word-break:break-all}
+.copy{font:inherit;font-weight:800;font-size:.9rem;border:0;border-radius:99px;padding:8px 14px;background:var(--sun);color:#26244A;cursor:pointer}
+.row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+</style>
+
+<section class="band hero">
+  <div class="bubbles" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  <div class="wrap">
+    <span class="brand"><i aria-hidden="true">✦</i>GetReward</span>
+    <h1>L'IA qui aide votre <span class="hl">micro-crèche</span> à respirer</h1>
+    <p class="sub">Des places remplies, des équipes au complet et moins de paperasse. Avec vos outils actuels, sans rien changer à votre organisation.</p>
+    <div><a class="btn" href="#contact">On en parle ?</a></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="wrap center" style="gap:12px">
+      <h2>3 coups de pouce, c'est tout</h2>
+      <p class="sub">Vous choisissez celui qui vous fait gagner le plus, on commence par là.</p>
+    </div>
+    <div class="cards">
+      <article class="card c1">
+        <div class="emo" aria-hidden="true">🧸</div>
+        <h3>Remplir</h3>
+        <p class="pb">Une place vide, c'est de l'argent perdu chaque mois.</p>
+        <ul>
+          <li>Les entreprises autour de vos crèches, repérées pour vous</li>
+          <li>Suivi des contacts et relances automatiques</li>
+        </ul>
+        <p class="win">✓ Plus de berceaux réservés</p>
+      </article>
+      <article class="card c2">
+        <div class="emo" aria-hidden="true">🤝</div>
+        <h3>Recruter</h3>
+        <p class="pb">Sans équipe, pas d'enfants accueillis.</p>
+        <ul>
+          <li>Annonces prêtes en quelques minutes</li>
+          <li>Premier tri des candidatures et relances</li>
+        </ul>
+        <p class="win">✓ Des postes pourvus plus vite</p>
+      </article>
+      <article class="card c3">
+        <div class="emo" aria-hidden="true">📋</div>
+        <h3>Alléger</h3>
+        <p class="pb">Mails, dossiers, CAF, plannings : trop d'heures y passent.</p>
+        <ul>
+          <li>L'IA prépare, votre équipe relit et valide</li>
+          <li>Formation pour que tout le monde s'y mette</li>
+        </ul>
+        <p class="win">✓ Des heures rendues aux enfants</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="center" style="display:grid">Comment ça se passe</h2>
+    <ol class="steps">
+      <li><h3>On discute</h3><p>30 minutes pour repérer ce qui vous coûte le plus de temps ou d'argent.</p></li>
+      <li><h3>J'installe</h3><p>Je mets en place les outils et je forme les personnes concernées.</p></li>
+      <li><h3>On mesure</h3><p>Places remplies, postes pourvus, heures gagnées : des résultats chiffrés.</p></li>
+    </ol>
+    <div class="chips">
+      <span class="chip">🔌 Vos logiciels <b>restent en place</b></span>
+      <span class="chip">👀 L'humain <b>valide toujours</b></span>
+      <span class="chip">🔒 Données des enfants <b>protégées</b></span>
+      <span class="chip">🗓️ <b>Sans engagement</b> de durée</span>
+    </div>
+  </div>
+</section>
+
+<section class="band pilot">
+  <div class="wrap">
+    <div class="big" aria-hidden="true">🚀</div>
+    <div>
+      <h2>Devenez réseau pilote</h2>
+      <p>Tarif préférentiel en échange d'un retour d'expérience chiffré, et un démarrage module par module.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap center" style="gap:20px">
+    <h2>Déjà en place</h2>
+    <div class="links">
+      <a href="https://berceo-site.vercel.app/" target="_blank" rel="noopener">Berceo<span>L'outil de remplissage</span></a>
+      <a href="https://beebaby-site.vercel.app/" target="_blank" rel="noopener">Exemple de site<span>Blog et offres d'emploi gérés par l'équipe</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="band contact" id="contact">
+  <div class="wrap center" style="gap:22px">
+    <h2>On en parle 30 minutes ?</h2>
+    <p class="sub">Alexandre Cordevant · GetReward · intégrateur IA indépendant, 25 ans d'expérience</p>
+    <div class="row">
+      <div class="cbox"><b id="mail">getrewardfr@gmail.com</b><button class="copy" type="button" data-copy="mail">Copier</button></div>
+      <div class="cbox"><b id="tel">06 18 48 79 55</b><button class="copy" type="button" data-copy="tel">Copier</button></div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var el=document.getElementById(btn.dataset.copy),txt=el.textContent.trim();
+    var reset=function(){setTimeout(function(){btn.textContent='Copier'},1600)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Sélectionné';reset()};
+    try{navigator.clipboard.writeText(txt).then(function(){btn.textContent='Copié !';reset()},fallback)}catch(e){fallback()}
+  });
+});
+</script>
+
+</body></html>
