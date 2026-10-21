@@ -233,7 +233,7 @@ footer a{font-weight:700}
       <div class="emo" aria-hidden="true">🎉</div>
       <h2>Merci, c'est bien reçu !</h2>
       <p class="sub" id="thanks-txt">Je vous écris sous 48 heures avec le lien de votre questionnaire de diagnostic.</p>
-      <p>Alexandre Cordevant · <a href="mailto:getrewardfr@gmail.com">getrewardfr@gmail.com</a> · 06 18 48 79 55</p>
+      <p>Alexandre Cordevant · <a href="mailto:contact@getreward.pro">contact@getreward.pro</a> · 06 18 48 79 55</p>
     </div>
   </div>
 </section>
@@ -261,7 +261,7 @@ f.addEventListener('submit', function(ev){
   var data = new FormData(f), body = new URLSearchParams();
   data.forEach(function(v, k){ body.append(k, v); });
   body.set('irritants', data.getAll('irritants').join(', '));
-  if (!ENDPOINT) { fail("Le formulaire n'est pas encore relié. Écrivez-moi à getrewardfr@gmail.com, je vous réponds vite."); return; }
+  if (!ENDPOINT) { fail("Le formulaire n'est pas encore relié. Écrivez-moi à contact@getreward.pro, je vous réponds vite."); return; }
   send.disabled = true; send.textContent = 'Envoi…';
   // no-cors : Apps Script ne renvoie pas d'en-têtes CORS ; la réponse est opaque mais la ligne est bien écrite
   fetch(ENDPOINT, {method:'POST', mode:'no-cors', body: body}).then(function(){
@@ -270,7 +270,7 @@ f.addEventListener('submit', function(ev){
     f.hidden = true; var t = document.getElementById('thanks'); t.hidden = false; t.focus(); t.scrollIntoView({block:'start'});
   }).catch(function(){
     send.disabled = false; send.textContent = 'Envoyer ma candidature →';
-    fail("L'envoi n'a pas abouti. Vérifiez votre connexion et réessayez, ou écrivez à getrewardfr@gmail.com.");
+    fail("L'envoi n'a pas abouti. Vérifiez votre connexion et réessayez, ou écrivez à contact@getreward.pro.");
   });
 });
 </script>
