@@ -123,6 +123,9 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
 .copy{font:inherit;font-weight:800;font-size:.9rem;border:0;border-radius:99px;padding:8px 14px;background:var(--sun);color:#26244A;cursor:pointer}
 .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
 
+.btn-light{background:#fff;color:#26244A}
+.foot{background:var(--ink);color:var(--bg);opacity:.92;text-align:center;font-size:.9rem;padding:0 16px 28px}
+.foot a{font-weight:700}
 /* retour accueil */
 .back{justify-self:start;margin-bottom:calc(-1 * clamp(8px,2vw,20px));font-weight:700;font-size:.95rem;text-decoration:none;opacity:.7}
 .back:hover{opacity:1;text-decoration:underline}
@@ -137,7 +140,7 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
     <span class="brand"><i aria-hidden="true">✦</i>GetReward</span>
     <h1>L'IA qui aide votre <span class="hl">micro-crèche</span> à respirer</h1>
     <p class="sub">Des places remplies, des équipes au complet et moins de paperasse. Avec vos outils actuels, sans rien changer à votre organisation.</p>
-    <div><a class="btn" href="#contact">On en parle ?</a></div>
+    <div><a class="btn" href="#contact">On en parle ?</a> <a class="btn" style="background:var(--surface);color:var(--ink)" href="/micro-creches/pilote/">Devenir crèche pilote</a></div>
   </div>
 </section>
 
@@ -203,8 +206,9 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
   <div class="wrap">
     <div class="big" aria-hidden="true">🚀</div>
     <div>
-      <h2>Devenez réseau pilote</h2>
-      <p>Tarif préférentiel en échange d'un retour d'expérience chiffré, et un démarrage module par module.</p>
+      <h2>Devenez crèche pilote</h2>
+      <p>Diagnostic de votre structure offert et 3 mois de Berceo offerts, en échange de vos retours et d'un bilan chiffré à 3 mois. 5 places.</p>
+      <p style="margin-top:16px"><a class="btn btn-light" href="/micro-creches/pilote/">Je candidate en 2 minutes →</a></p>
     </div>
   </div>
 </section>
@@ -224,11 +228,13 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
     <h2>On en parle 30 minutes ?</h2>
     <p class="sub">Alexandre Cordevant · GetReward · intégrateur IA indépendant, 25 ans d'expérience</p>
     <div class="row">
-      <div class="cbox"><b id="mail">getrewardfr@gmail.com</b><button class="copy" type="button" data-copy="mail">Copier</button></div>
+      <div class="cbox"><b id="mail">contact@getreward.pro</b><button class="copy" type="button" data-copy="mail">Copier</button></div>
       <div class="cbox"><b id="tel">06 18 48 79 55</b><button class="copy" type="button" data-copy="tel">Copier</button></div>
     </div>
   </div>
 </section>
+
+<footer class="foot">GetReward · EURL GETREWARD · Saint-Georges-d'Orques (34) · <a href="/mentions-legales/">Mentions légales et confidentialité</a></footer>
 
 <script>
 document.querySelectorAll('.copy').forEach(function(btn){
