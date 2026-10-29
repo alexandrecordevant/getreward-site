@@ -31,6 +31,7 @@
  --sky:#5CC4F0; --sky-soft:#173547; --mint:#46D6A8; --mint-soft:#163B31; --hero:#2A2747; color-scheme:dark;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:var(--f-display);line-height:1.05;margin:0;text-wrap:balance}
 p{margin:0}
@@ -248,13 +249,21 @@ var f = document.getElementById('f'), err = document.getElementById('err'), send
 // Référence de la crèche (SIREN) transmise par le lien du mail : ?r=123456789
 try { document.getElementById('ref').value = (new URLSearchParams(location.search).get('r') || '').replace(/[^0-9A-Za-z-]/g, '').slice(0, 20); } catch (e) {}
 
+function nomDuChamp(el){
+  if (el.closest('.consent')) return "la case d'accord sur vos données";
+  if (el.closest('.levels')) return "« Jusqu'où voulez-vous aller ? »";
+  var q = el.closest('.field');
+  var t = q && (q.querySelector('.q') || q.querySelector('span'));
+  return t ? '« ' + t.firstChild.textContent.trim() + ' »' : 'un champ obligatoire';
+}
 function fail(msg){ err.textContent = msg; err.hidden = false; err.focus && err.scrollIntoView({block:'center'}); }
 
 f.addEventListener('submit', function(ev){
   ev.preventDefault(); err.hidden = true;
   if (!f.checkValidity()) {
-    var bad = f.querySelector(':invalid');
-    fail('Il manque une réponse : ' + (bad.closest('.field,.level,.consent,fieldset').querySelector('span,b,legend') || {textContent:'champ obligatoire'}).textContent.trim());
+    // :invalid seul renverrait aussi le <fieldset> parent : on vise le premier champ fautif
+    var bad = f.querySelector('input:invalid, select:invalid, textarea:invalid');
+    fail('Il manque une réponse : ' + nomDuChamp(bad));
     bad.focus(); return;
   }
   if (f.site.value) return; // robot
