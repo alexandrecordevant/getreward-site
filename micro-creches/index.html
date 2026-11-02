@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>L'IA pour les micro-crèches · GetReward</title>
-<meta name="description" content="Remplir vos places, recruter plus vite, alléger l'administratif : GetReward met l'IA au service des gestionnaires de micro-crèches, avec vos outils actuels.">
+<title>Berceo et l'IA pour les micro-crèches · GetReward</title>
+<meta name="description" content="Berceo gère et remplit votre micro-crèche, l'IA vous rend vos heures. Logiciel à 20 € HT par mois et par crèche, essai 30 jours, et accompagnement IA à prix fixe.">
 <link rel="canonical" href="https://getreward.pro/micro-creches/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://getreward.pro/micro-creches/">
-<meta property="og:title" content="L'IA qui aide votre micro-crèche à respirer · GetReward">
-<meta property="og:description" content="Des places remplies, des équipes au complet et moins de paperasse. Avec vos outils actuels, sans rien changer à votre organisation.">
+<meta property="og:title" content="Berceo gère votre crèche, l'IA vous rend vos heures · GetReward">
+<meta property="og:description" content="Un logiciel pensé pour les micro-crèches indépendantes, et l'IA mise en place autour, à prix fixe. Diagnostic offert.">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="GetReward">
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;700;800&display=swap">
 <style>
-/* Layout : une colonne joyeuse, 3 grosses cartes colorées au centre, tout se lit en 30 secondes */
+/* Layout : deux briques côte à côte (Berceo / IA), puis le détail de chacune, le calcul, les tarifs et le pilote */
 :root{
   --bg:#FFFAF0; --surface:#FFFFFF; --ink:#26244A; --muted:#5E5B7E; --line:#EFE6D6;
   --sun:#FFC52E; --sun-soft:#FFF1C2;
@@ -47,14 +47,15 @@ a{color:inherit}
 .wrap{max-width:1040px;margin-inline:auto;display:grid;gap:clamp(24px,4vw,40px)}
 .center{text-align:center;justify-items:center}
 h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
-.sub{color:var(--muted);font-size:1.12rem;max-width:56ch}
+.sub{color:var(--muted);font-size:1.12rem;max-width:58ch}
+.alt{background:var(--surface)}
 
 /* HERO */
 .hero{background:var(--hero);position:relative;overflow:hidden}
 .hero .wrap{position:relative;z-index:1}
 .brand{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:1.25rem;background:var(--surface);padding:6px 16px 6px 8px;border-radius:99px;box-shadow:0 6px 18px -10px rgba(38,36,74,.4)}
 .brand i{width:28px;height:28px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-style:normal;font-size:.95rem}
-.hero h1{font-size:clamp(2.6rem,7.5vw,5rem);font-weight:800;max-width:14ch}
+.hero h1{font-size:clamp(2.4rem,7vw,4.6rem);font-weight:800;max-width:15ch}
 .hero h1 .hl{background:linear-gradient(transparent 58%,var(--coral) 58%,var(--coral) 88%,transparent 88%);padding:0 .1em}
 .hero .sub{color:var(--ink);font-size:1.25rem}
 .bubbles span{position:absolute;border-radius:50%;opacity:.9}
@@ -69,32 +70,78 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
 }
 @media(max-width:640px){.bubbles span:nth-child(2){right:-20px;bottom:-20px}.bubbles span:nth-child(3){display:none}}
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);font-family:var(--f-display);font-weight:700;font-size:1.1rem;padding:12px 24px;border-radius:99px;text-decoration:none}
-.btn:focus-visible,.copy:focus-visible,a:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+.btn-ghost{background:var(--surface);color:var(--ink)}
+.btn-light{background:#fff;color:#26244A}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hint{font-size:.95rem;font-weight:700;opacity:.8}
+.btn:focus-visible,.copy:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
 
-/* 3 CARTES */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{border-radius:28px;padding:28px 24px;display:grid;gap:12px;align-content:start;min-width:0}
-.card .emo{font-size:2.6rem;line-height:1}
-.card h3{font-size:1.9rem;font-weight:800}
-.card .pb{font-weight:800}
-.card ul{margin:0;padding-left:1.1em;display:grid;gap:6px}
-.card .win{margin-top:4px;background:var(--surface);border-radius:16px;padding:12px 14px;font-weight:800}
-.c1{background:var(--sun-soft)} .c1 .win{color:var(--ink)} .c1 h3{color:#B37A00}
-.c2{background:var(--sky-soft)} .c2 h3{color:#0F7FB3}
-.c3{background:var(--mint-soft)} .c3 h3{color:#13875F}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .c1 h3{color:var(--sun)}:root:not([data-theme="light"]) .c2 h3{color:var(--sky)}:root:not([data-theme="light"]) .c3 h3{color:var(--mint)}}
-:root[data-theme="dark"] .c1 h3{color:var(--sun)}:root[data-theme="dark"] .c2 h3{color:var(--sky)}:root[data-theme="dark"] .c3 h3{color:var(--mint)}
-@media(max-width:860px){.cards{grid-template-columns:1fr}}
+/* DEUX BRIQUES */
+.duo{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:stretch}
+.duo .plus{align-self:center;font-family:var(--f-display);font-weight:800;font-size:2.4rem;color:var(--coral)}
+.brick{border-radius:28px;padding:28px 24px;display:grid;gap:12px;align-content:start;min-width:0}
+.brick .tag{font-weight:800;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;opacity:.75}
+.brick h3{font-size:2rem;font-weight:800}
+.brick ul{margin:0;padding-left:1.1em;display:grid;gap:6px}
+.brick .price{margin-top:4px;background:var(--surface);border-radius:16px;padding:12px 14px;font-weight:800}
+.brick .price small{display:block;font-weight:600;color:var(--muted);font-size:.9rem}
+.b1{background:var(--sky-soft)} .b1 h3{color:#0F7FB3}
+.b2{background:var(--mint-soft)} .b2 h3{color:#13875F}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .b1 h3{color:var(--sky)}:root:not([data-theme="light"]) .b2 h3{color:var(--mint)}}
+:root[data-theme="dark"] .b1 h3{color:var(--sky)}:root[data-theme="dark"] .b2 h3{color:var(--mint)}
+@media(max-width:860px){.duo{grid-template-columns:1fr}.duo .plus{justify-self:center;line-height:.6}}
+
+/* MODULES BERCEO */
+.mods{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.mod{background:var(--bg);border:2px solid var(--line);border-radius:22px;padding:20px;display:grid;gap:8px;align-content:start;min-width:0}
+.mod .emo{font-size:2rem;line-height:1}
+.mod h3{font-size:1.35rem}
+.mod p{color:var(--muted);font-size:1rem}
+@media(max-width:900px){.mods{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.mods{grid-template-columns:1fr}}
+
+/* CALCULATEUR */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.fields{display:grid;gap:16px}
+.field{display:grid;gap:4px}
+.field label{font-weight:800}
+.field input{font:inherit;font-weight:700;padding:10px 14px;border-radius:14px;border:2px solid var(--line);background:var(--surface);color:var(--ink);width:100%}
+.field small{color:var(--muted);font-size:.9rem}
+.result{background:var(--ink);color:var(--bg);border-radius:24px;padding:24px;display:grid;gap:12px}
+.result .big{font-family:var(--f-display);font-weight:800;font-size:clamp(2.2rem,5vw,3rem);line-height:1}
+.result .line{display:flex;justify-content:space-between;gap:12px;border-top:1px solid rgba(255,255,255,.18);padding-top:10px}
+.result .note{font-size:.85rem;opacity:.8}
+@media(max-width:760px){.calc{grid-template-columns:1fr}}
+
+/* COMPARATIF */
+.tbl{width:100%;border-collapse:collapse;font-size:1rem}
+.tbl th,.tbl td{padding:12px 10px;text-align:left;border-bottom:2px solid var(--line);vertical-align:top}
+.tbl thead th{font-family:var(--f-display);font-size:1.1rem}
+.tbl td:last-child,.tbl th:last-child{background:var(--mint-soft);font-weight:800}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:640px){.tbl{min-width:560px}}
 
 /* ÉTAPES */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;list-style:none;padding:0;margin:0;counter-reset:s}
-.steps li{counter-increment:s;display:grid;justify-items:center;text-align:center;gap:8px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;justify-items:center;text-align:center;gap:8px;align-content:start}
 .steps li::before{content:counter(s);width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:1.6rem;color:#26244A;background:var(--sun)}
-.steps li:nth-child(2)::before{background:var(--coral)}
+.steps li:nth-child(2)::before{background:var(--sky)}
 .steps li:nth-child(3)::before{background:var(--mint)}
-.steps h3{font-size:1.4rem}
-.steps p{color:var(--muted)}
-@media(max-width:700px){.steps{grid-template-columns:1fr}}
+.steps li:nth-child(4)::before{background:var(--coral)}
+.steps h3{font-size:1.3rem}
+.steps p{color:var(--muted);font-size:1rem}
+@media(max-width:860px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* TARIFS */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pcard{background:var(--surface);border:2px solid var(--line);border-radius:24px;padding:24px;display:grid;gap:10px;align-content:start;min-width:0}
+.pcard.hi{border-color:var(--sky)}
+.pcard h3{font-size:1.4rem}
+.pcard .amt{font-family:var(--f-display);font-weight:800;font-size:2.2rem;line-height:1}
+.pcard .amt small{font-family:var(--f-body);font-size:.95rem;font-weight:700;color:var(--muted)}
+.pcard ul{margin:0;padding-left:1.1em;display:grid;gap:4px;font-size:1rem}
+@media(max-width:860px){.prices{grid-template-columns:1fr}}
 
 /* PROMESSES */
 .chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
@@ -109,7 +156,13 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
 .pilot p{font-size:1.15rem;font-weight:700;margin-top:6px}
 @media(max-width:640px){.pilot .wrap{grid-template-columns:1fr;text-align:center;justify-items:center}}
 
-/* DÉJÀ EN PLACE */
+/* FAQ */
+.faq{display:grid;gap:10px;max-width:780px;width:100%;margin-inline:auto}
+.faq details{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:14px 18px}
+.faq summary{font-weight:800;cursor:pointer}
+.faq details p{margin-top:8px;color:var(--muted)}
+
+/* EXEMPLE */
 .links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
 .links a{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 18px;text-decoration:none;font-weight:800;display:grid;gap:2px;min-width:0}
 .links a span{font-weight:600;color:var(--muted);font-size:.9rem}
@@ -123,7 +176,6 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
 .copy{font:inherit;font-weight:800;font-size:.9rem;border:0;border-radius:99px;padding:8px 14px;background:var(--sun);color:#26244A;cursor:pointer}
 .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
 
-.btn-light{background:#fff;color:#26244A}
 .foot{background:var(--ink);color:var(--bg);opacity:.92;text-align:center;font-size:.9rem;padding:0 16px 28px}
 .foot a{font-weight:700}
 /* retour accueil */
@@ -137,67 +189,152 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
   <div class="bubbles" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <div class="wrap">
     <a class="back" href="/">← GetReward</a>
-    <span class="brand"><i aria-hidden="true">✦</i>GetReward</span>
-    <h1>L'IA qui aide votre <span class="hl">micro-crèche</span> à respirer</h1>
-    <p class="sub">Des places remplies, des équipes au complet et moins de paperasse. Avec vos outils actuels, sans rien changer à votre organisation.</p>
-    <div><a class="btn" href="#contact">On en parle ?</a> <a class="btn" style="background:var(--surface);color:var(--ink)" href="/micro-creches/pilote/">Devenir crèche pilote</a></div>
+    <span class="brand"><i aria-hidden="true">✦</i>GetReward · micro-crèches</span>
+    <h1>Berceo gère votre crèche, <span class="hl">l'IA</span> vous rend vos heures</h1>
+    <p class="sub">Un logiciel pensé pour les micro-crèches indépendantes, et l'IA mise en place autour, pour remplir vos places, recruter plus vite et alléger l'administratif.</p>
+    <div class="ctas">
+      <a class="btn" href="/micro-creches/pilote/">Devenir crèche pilote</a>
+      <a class="btn btn-ghost" href="https://berceo.vercel.app/inscription">Essayer Berceo 30 jours</a>
+    </div>
+    <p class="hint">Diagnostic offert · essai sans carte bancaire · sans engagement</p>
   </div>
 </section>
 
 <section class="band">
   <div class="wrap">
     <div class="wrap center" style="gap:12px">
-      <h2>3 coups de pouce, c'est tout</h2>
-      <p class="sub">Vous choisissez celui qui vous fait gagner le plus, on commence par là.</p>
+      <h2>Deux briques qui se complètent</h2>
+      <p class="sub">Prenez Berceo seul, l'accompagnement IA seul, ou les deux : c'est ensemble qu'ils rapportent le plus.</p>
     </div>
-    <div class="cards">
-      <article class="card c1">
-        <div class="emo" aria-hidden="true">🧸</div>
-        <h3>Remplir</h3>
-        <p class="pb">Une place vide, c'est de l'argent perdu chaque mois.</p>
+    <div class="duo">
+      <article class="brick b1">
+        <span class="tag">Le logiciel</span>
+        <h3>🧸 Berceo</h3>
         <ul>
-          <li>Les entreprises autour de vos crèches, repérées pour vous</li>
-          <li>Suivi des contacts et relances automatiques</li>
+          <li>Les entreprises autour de chaque crèche, classées, avec le coût réel d'un berceau</li>
+          <li>Liste d'attente, enfants, contrats, présences sur tablette</li>
+          <li>Espace parents, équipe, recrutement, PMI</li>
+          <li>Facturation et CMG en option</li>
         </ul>
-        <p class="win">✓ Plus de berceaux réservés</p>
+        <p class="price">20 € HT par mois et par crèche<small>Essai gratuit 30 jours · résiliable en ligne</small></p>
       </article>
-      <article class="card c2">
-        <div class="emo" aria-hidden="true">🤝</div>
-        <h3>Recruter</h3>
-        <p class="pb">Sans équipe, pas d'enfants accueillis.</p>
+      <span class="plus" aria-hidden="true">+</span>
+      <article class="brick b2">
+        <span class="tag">L'accompagnement</span>
+        <h3>✨ L'IA GetReward</h3>
         <ul>
-          <li>Annonces prêtes en quelques minutes</li>
-          <li>Premier tri des candidatures et relances</li>
+          <li>Annonces de recrutement et premier tri des candidatures</li>
+          <li>Réponses aux familles et aux entreprises préparées</li>
+          <li>Dossiers CAF et PMI pré-remplis, votre équipe relit</li>
+          <li>Formation pour que toute l'équipe s'y mette</li>
         </ul>
-        <p class="win">✓ Des postes pourvus plus vite</p>
-      </article>
-      <article class="card c3">
-        <div class="emo" aria-hidden="true">📋</div>
-        <h3>Alléger</h3>
-        <p class="pb">Mails, dossiers, CAF, plannings : trop d'heures y passent.</p>
-        <ul>
-          <li>L'IA prépare, votre équipe relit et valide</li>
-          <li>Formation pour que tout le monde s'y mette</li>
-        </ul>
-        <p class="win">✓ Des heures rendues aux enfants</p>
+        <p class="price">Diagnostic offert, puis prix fixe<small>Annoncé avant de commencer · installé sur vos comptes</small></p>
       </article>
     </div>
   </div>
 </section>
 
-<section class="band" style="padding-top:0">
+<section class="band alt">
+  <div class="wrap">
+    <div class="wrap center" style="gap:12px">
+      <h2>Berceo, tout ce qu'il faut à une micro-crèche</h2>
+      <p class="sub">Les moyens d'un grand réseau, au prix d'une micro-crèche. Hébergé en Europe, vos données restent les vôtres.</p>
+    </div>
+    <div class="mods">
+      <article class="mod"><div class="emo" aria-hidden="true">📍</div><h3>Remplir</h3><p>Entreprises de 20 salariés et plus autour de vous, score de priorité, coût après crédit d'impôt, relances jusqu'à la signature.</p></article>
+      <article class="mod"><div class="emo" aria-hidden="true">👶</div><h3>Gérer</h3><p>Liste d'attente, enfants, contrats, plannings, présences sur tablette et espace parents.</p></article>
+      <article class="mod"><div class="emo" aria-hidden="true">🤝</div><h3>Équipe et PMI</h3><p>Recrutement, encadrement, référent santé, documents PMI et suivi de la qualité.</p></article>
+      <article class="mod"><div class="emo" aria-hidden="true">🧾</div><h3>Facturer</h3><p>Factures, règlements, attestations, déclaration CMG, export comptable. En option.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="calcul">
+  <div class="wrap">
+    <div class="wrap center" style="gap:12px">
+      <h2>Combien rapporteraient vos places en berceaux entreprises ?</h2>
+      <p class="sub">Le berceau entreprise est votre place la plus rentable. Encore faut-il montrer aux entreprises ce qu'il leur coûte vraiment.</p>
+    </div>
+    <div class="calc">
+      <div class="fields">
+        <div class="field"><label for="nbPlaces">Places à pourvoir sur l'année</label><input id="nbPlaces" type="number" min="0" step="1" value="3" inputmode="numeric"><small>Toutes crèches confondues.</small></div>
+        <div class="field"><label for="berceau">Prix annuel d'un berceau entreprise (€ HT)</label><input id="berceau" type="number" min="0" step="500" value="10000" inputmode="numeric"><small>Votre tarif habituel. Valeur d'exemple, à ajuster.</small></div>
+        <div class="field"><label for="recette">Recette mensuelle d'une place famille (€)</label><input id="recette" type="number" min="0" step="50" value="1300" inputmode="numeric"><small>Pour mesurer ce que coûte une place restée vide.</small></div>
+      </div>
+      <div class="result" aria-live="polite">
+        <span>Chiffre d'affaires annuel en berceaux entreprises</span>
+        <span class="big" id="caBerceaux">30 000 €</span>
+        <div class="line"><span>Coût réel pour l'entreprise, par berceau</span><b id="coutEntreprise">2 500 €/an</b></div>
+        <div class="line"><span>Manque à gagner si ces places restent vides</span><b id="perte">46 800 €/an</b></div>
+        <p class="note">Estimation indicative : crédit d'impôt famille de 50 % et impôt sur les sociétés à 25 %, à confirmer par l'expert-comptable de l'entreprise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap">
+    <div class="wrap center" style="gap:12px">
+      <h2>Face aux grands réseaux</h2>
+      <p class="sub">Ils ont une équipe commerciale. Vous avez la proximité, et maintenant Berceo.</p>
+    </div>
+    <div class="scroll">
+      <table class="tbl">
+        <thead><tr><th></th><th>Grand groupe</th><th>Micro-crèche seule</th><th>Avec Berceo + IA</th></tr></thead>
+        <tbody>
+          <tr><th>Repérer les entreprises proches</th><td>Équipe commerciale</td><td>Bouche-à-oreille</td><td>Liste automatique, classée par priorité</td></tr>
+          <tr><th>Chiffrer le coût pour l'entreprise</th><td>Oui</td><td>Rarement</td><td>Simulateur prêt pour le rendez-vous</td></tr>
+          <tr><th>Relancer et suivre</th><td>Outils internes</td><td>Quand on a le temps</td><td>Relances rappelées, mails préparés par l'IA</td></tr>
+          <tr><th>Administratif</th><td>Services support</td><td>Le soir, à la main</td><td>Logiciel + IA, l'équipe relit et valide</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="band">
   <div class="wrap">
     <h2 class="center" style="display:grid">Comment ça se passe</h2>
     <ol class="steps">
-      <li><h3>On discute</h3><p>30 minutes pour repérer ce qui vous coûte le plus de temps ou d'argent.</p></li>
-      <li><h3>J'installe</h3><p>Je mets en place les outils et je forme les personnes concernées.</p></li>
-      <li><h3>On mesure</h3><p>Places remplies, postes pourvus, heures gagnées : des résultats chiffrés.</p></li>
+      <li><h3>Diagnostic offert</h3><p>Un questionnaire de 15 minutes, puis un rapport écrit : où partent votre temps et votre argent.</p></li>
+      <li><h3>Berceo en place</h3><p>Vos crèches, vos enfants et vos plannings importés. Vos premières entreprises cibles tout de suite.</p></li>
+      <li><h3>L'IA installée</h3><p>Sur vos comptes, à prix fixe, avec une formation pour l'équipe.</p></li>
+      <li><h3>On mesure</h3><p>Places remplies, postes pourvus, heures gagnées : un bilan chiffré à 3 mois.</p></li>
     </ol>
     <div class="chips">
-      <span class="chip">🔌 Vos logiciels <b>restent en place</b></span>
       <span class="chip">👀 L'humain <b>valide toujours</b></span>
-      <span class="chip">🔒 Données des enfants <b>protégées</b></span>
+      <span class="chip">🔒 Données hébergées <b>en Europe</b></span>
       <span class="chip">🗓️ <b>Sans engagement</b> de durée</span>
+      <span class="chip">📤 Vos données <b>exportables</b></span>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="tarifs">
+  <div class="wrap">
+    <div class="wrap center" style="gap:12px">
+      <h2>Des prix de micro-crèche</h2>
+      <p class="sub">Hors taxes, par crèche, jusqu'à 20 crèches. Un seul berceau entreprise signé rembourse des années d'abonnement.</p>
+    </div>
+    <div class="prices">
+      <article class="pcard hi">
+        <h3>Pack Berceo</h3>
+        <p class="amt">20 € <small>HT / mois / crèche</small></p>
+        <p class="hint">ou 200 € HT par an</p>
+        <ul><li>Remplissage, gestion, équipe, PMI</li><li>Toute l'équipe et les parents</li><li>Essai 30 jours sans carte</li></ul>
+      </article>
+      <article class="pcard">
+        <h3>Option Facturation</h3>
+        <p class="amt">+20 € <small>HT / mois / crèche</small></p>
+        <p class="hint">ou 200 € HT par an</p>
+        <ul><li>Factures et règlements</li><li>Attestations et CMG</li><li>Export comptable</li></ul>
+      </article>
+      <article class="pcard">
+        <h3>Accompagnement IA</h3>
+        <p class="amt">Prix fixe</p>
+        <p class="hint">annoncé après le diagnostic offert</p>
+        <ul><li>Outils installés sur vos comptes</li><li>Formation de l'équipe</li><li>Garantie 3 mois incluse</li></ul>
+      </article>
     </div>
   </div>
 </section>
@@ -207,17 +344,24 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
     <div class="big" aria-hidden="true">🚀</div>
     <div>
       <h2>Devenez crèche pilote</h2>
-      <p>Diagnostic de votre structure offert et 3 mois de Berceo offerts, en échange de vos retours et d'un bilan chiffré à 3 mois. 5 places.</p>
+      <p>Diagnostic IA offert et 3 mois de Berceo offerts, en échange de vos retours et d'un bilan chiffré à 3 mois. 5 places.</p>
       <p style="margin-top:16px"><a class="btn btn-light" href="/micro-creches/pilote/">Je candidate en 2 minutes →</a></p>
     </div>
   </div>
 </section>
 
 <section class="band">
-  <div class="wrap center" style="gap:20px">
-    <h2>Déjà en place</h2>
+  <div class="wrap center" style="gap:24px">
+    <h2>Questions fréquentes</h2>
+    <div class="faq" style="text-align:left">
+      <details><summary>Faut-il prendre Berceo et l'IA ensemble ?</summary><p>Non. Berceo s'utilise seul, et l'accompagnement IA aussi. Ensemble, l'IA prépare les mails, les annonces et les dossiers à partir de ce que Berceo connaît de vos crèches.</p></details>
+      <details><summary>Berceo remplace-t-il mon logiciel actuel ?</summary><p>Il peut : Berceo couvre la gestion au quotidien (enfants, contrats, présences, parents, facturation). Vous pouvez aussi commencer par la partie remplissage et garder votre logiciel le temps de comparer.</p></details>
+      <details><summary>Que se passe-t-il à la fin de l'essai de 30 jours ?</summary><p>Vous choisissez le Pack, mensuel ou annuel. Sans abonnement, l'accès se ferme, mais vos données restent exportables et vos factures consultables.</p></details>
+      <details><summary>L'IA envoie-t-elle des messages à ma place ?</summary><p>Non. L'IA prépare, votre équipe relit et valide. Rien ne part sans vous.</p></details>
+      <details><summary>Où sont hébergées les données des enfants ?</summary><p>En Europe. Vos données restent les vôtres : vous pouvez les exporter ou supprimer votre compte à tout moment.</p></details>
+    </div>
     <div class="links">
-      <a href="https://berceo-site.vercel.app/" target="_blank" rel="noopener">Berceo<span>L'outil de remplissage</span></a>
+      <a href="https://berceo.vercel.app/connexion">Déjà client ?<span>Se connecter à Berceo</span></a>
       <a href="https://beebaby-site.vercel.app/" target="_blank" rel="noopener">Exemple de site<span>Blog et offres d'emploi gérés par l'équipe</span></a>
     </div>
   </div>
@@ -234,9 +378,23 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
   </div>
 </section>
 
-<footer class="foot">GetReward · EURL GETREWARD · Saint-Georges-d'Orques (34) · <a href="/mentions-legales/">Mentions légales et confidentialité</a></footer>
+<footer class="foot">GetReward · SARL GETREWARD · Saint-Georges-d'Orques (34) · <a href="/mentions-legales/">Mentions légales et confidentialité</a> · <a href="https://berceo.vercel.app/cgv">CGV Berceo</a></footer>
 
 <script>
+(function(){
+  var fmt=function(n){return Math.round(n).toLocaleString('fr-FR')+' €'};
+  var $=function(id){return document.getElementById(id)};
+  function calc(){
+    var p=Math.max(0,parseFloat($('nbPlaces').value)||0);
+    var r=Math.max(0,parseFloat($('recette').value)||0);
+    var b=Math.max(0,parseFloat($('berceau').value)||0);
+    $('caBerceaux').textContent=fmt(p*b);
+    $('coutEntreprise').textContent=fmt(b*(1-0.5-0.25))+'/an';
+    $('perte').textContent=fmt(p*r*12)+'/an';
+  }
+  ['nbPlaces','recette','berceau'].forEach(function(id){$(id).addEventListener('input',calc)});
+  calc();
+})();
 document.querySelectorAll('.copy').forEach(function(btn){
   btn.addEventListener('click',function(){
     var el=document.getElementById(btn.dataset.copy),txt=el.textContent.trim();
