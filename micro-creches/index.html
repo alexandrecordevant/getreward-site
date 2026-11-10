@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Berceo et l'IA pour les micro-crèches · GetReward</title>
-<meta name="description" content="Berceo gère et remplit votre micro-crèche, l'IA vous rend vos heures. Logiciel à 20 € HT par mois et par crèche, essai 30 jours, et accompagnement IA à prix fixe.">
+<meta name="description" content="Berceo trouve gratuitement les entreprises autour de votre micro-crèche, gère le reste pour 20 € HT par mois et par crèche (essai 30 jours), et l'IA vous rend vos heures.">
 <link rel="canonical" href="https://getreward.pro/micro-creches/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://getreward.pro/micro-creches/">
@@ -134,7 +134,8 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
 @media(max-width:520px){.steps{grid-template-columns:1fr}}
 
 /* TARIFS */
-.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.prices{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1100px){.prices{grid-template-columns:repeat(2,1fr)}}
 .pcard{background:var(--surface);border:2px solid var(--line);border-radius:24px;padding:24px;display:grid;gap:10px;align-content:start;min-width:0}
 .pcard.hi{border-color:var(--sky)}
 .pcard h3{font-size:1.4rem}
@@ -194,9 +195,9 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
     <p class="sub">Un logiciel pensé pour les micro-crèches indépendantes, et l'IA mise en place autour, pour remplir vos places, recruter plus vite et alléger l'administratif.</p>
     <div class="ctas">
       <a class="btn" href="/micro-creches/pilote/">Devenir crèche pilote</a>
-      <a class="btn btn-ghost" href="https://berceo.vercel.app/inscription">Essayer Berceo 30 jours</a>
+      <a class="btn btn-ghost" href="https://berceo.vercel.app/inscription">Trouver mes entreprises gratuitement</a>
     </div>
-    <p class="hint">Diagnostic offert · essai sans carte bancaire · sans engagement</p>
+    <p class="hint">Prospection gratuite · diagnostic IA offert · sans carte bancaire</p>
   </div>
 </section>
 
@@ -216,7 +217,7 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
           <li>Espace parents, équipe, recrutement, PMI</li>
           <li>Facturation et CMG en option</li>
         </ul>
-        <p class="price">20 € HT par mois et par crèche<small>Essai gratuit 30 jours · résiliable en ligne</small></p>
+        <p class="price">Prospection gratuite<small>Le reste : 20 € HT par mois et par crèche · essai 30 jours</small></p>
       </article>
       <span class="plus" aria-hidden="true">+</span>
       <article class="brick b2">
@@ -241,7 +242,7 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
       <p class="sub">Les moyens d'un grand réseau, au prix d'une micro-crèche. Hébergé en Europe, vos données restent les vôtres.</p>
     </div>
     <div class="mods">
-      <article class="mod"><div class="emo" aria-hidden="true">📍</div><h3>Remplir</h3><p>Entreprises de 20 salariés et plus autour de vous, score de priorité, coût après crédit d'impôt, relances jusqu'à la signature.</p></article>
+      <article class="mod"><div class="emo" aria-hidden="true">📍</div><h3>Remplir · gratuit</h3><p>Entreprises de 20 salariés et plus autour de vous, score de priorité, coût après crédit d'impôt, suivi jusqu'à la signature. Gratuit pour une crèche.</p></article>
       <article class="mod"><div class="emo" aria-hidden="true">👶</div><h3>Gérer</h3><p>Liste d'attente, enfants, contrats, plannings, présences sur tablette et espace parents.</p></article>
       <article class="mod"><div class="emo" aria-hidden="true">🤝</div><h3>Équipe et PMI</h3><p>Recrutement, encadrement, référent santé, documents PMI et suivi de la qualité.</p></article>
       <article class="mod"><div class="emo" aria-hidden="true">🧾</div><h3>Facturer</h3><p>Factures, règlements, attestations, déclaration CMG, export comptable. En option.</p></article>
@@ -282,7 +283,7 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
       <table class="tbl">
         <thead><tr><th></th><th>Grand groupe</th><th>Micro-crèche seule</th><th>Avec Berceo + IA</th></tr></thead>
         <tbody>
-          <tr><th>Repérer les entreprises proches</th><td>Équipe commerciale</td><td>Bouche-à-oreille</td><td>Liste automatique, classée par priorité</td></tr>
+          <tr><th>Repérer les entreprises proches</th><td>Équipe commerciale</td><td>Bouche-à-oreille</td><td>Liste automatique et gratuite, classée par priorité</td></tr>
           <tr><th>Chiffrer le coût pour l'entreprise</th><td>Oui</td><td>Rarement</td><td>Simulateur prêt pour le rendez-vous</td></tr>
           <tr><th>Relancer et suivre</th><td>Outils internes</td><td>Quand on a le temps</td><td>Relances rappelées, mails préparés par l'IA</td></tr>
           <tr><th>Administratif</th><td>Services support</td><td>Le soir, à la main</td><td>Logiciel + IA, l'équipe relit et valide</td></tr>
@@ -314,14 +315,21 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
   <div class="wrap">
     <div class="wrap center" style="gap:12px">
       <h2>Des prix de micro-crèche</h2>
-      <p class="sub">Hors taxes, par crèche, jusqu'à 20 crèches. Un seul berceau entreprise signé rembourse des années d'abonnement.</p>
+      <p class="sub">La prospection est gratuite. Le reste : hors taxes, par crèche, jusqu'à 20 crèches. Un seul berceau entreprise signé rembourse des années d'abonnement.</p>
     </div>
     <div class="prices">
+      <article class="pcard">
+        <h3>Prospection</h3>
+        <p class="amt">0 € <small>sans limite de durée</small></p>
+        <p class="hint">pour une crèche</p>
+        <ul><li>Entreprises autour de vous, classées</li><li>Coût d'un berceau après crédit d'impôt</li><li>Suivi jusqu'à la signature</li></ul>
+        <p><a class="btn btn-ghost" href="https://berceo.vercel.app/inscription">Créer mon compte</a></p>
+      </article>
       <article class="pcard hi">
         <h3>Pack Berceo</h3>
         <p class="amt">20 € <small>HT / mois / crèche</small></p>
         <p class="hint">ou 200 € HT par an</p>
-        <ul><li>Remplissage, gestion, équipe, PMI</li><li>Toute l'équipe et les parents</li><li>Essai 30 jours sans carte</li></ul>
+        <ul><li>Gestion, équipe, recrutement, PMI</li><li>Toute l'équipe et les parents</li><li>Prospection pour toutes vos crèches</li><li>Essai 30 jours sans carte</li></ul>
       </article>
       <article class="pcard">
         <h3>Option Facturation</h3>
@@ -356,7 +364,8 @@ h2{font-size:clamp(2rem,4.6vw,3rem);font-weight:800}
     <div class="faq" style="text-align:left">
       <details><summary>Faut-il prendre Berceo et l'IA ensemble ?</summary><p>Non. Berceo s'utilise seul, et l'accompagnement IA aussi. Ensemble, l'IA prépare les mails, les annonces et les dossiers à partir de ce que Berceo connaît de vos crèches.</p></details>
       <details><summary>Berceo remplace-t-il mon logiciel actuel ?</summary><p>Il peut : Berceo couvre la gestion au quotidien (enfants, contrats, présences, parents, facturation). Vous pouvez aussi commencer par la partie remplissage et garder votre logiciel le temps de comparer.</p></details>
-      <details><summary>Que se passe-t-il à la fin de l'essai de 30 jours ?</summary><p>Vous choisissez le Pack, mensuel ou annuel. Sans abonnement, l'accès se ferme, mais vos données restent exportables et vos factures consultables.</p></details>
+      <details><summary>La prospection est-elle vraiment gratuite ?</summary><p>Oui, pour une crèche et sans limite de durée : recherche des entreprises, score, coût d'un berceau, suivi et export. Sans carte bancaire. Le Pack Berceo ajoute la gestion et ouvre la prospection à toutes vos crèches.</p></details>
+      <details><summary>Que se passe-t-il à la fin de l'essai de 30 jours ?</summary><p>Vous lancez l'essai quand vous voulez. À la fin, vous choisissez le Pack, mensuel ou annuel. Sans abonnement, la prospection reste gratuite et vos autres données restent exportables.</p></details>
       <details><summary>L'IA envoie-t-elle des messages à ma place ?</summary><p>Non. L'IA prépare, votre équipe relit et valide. Rien ne part sans vous.</p></details>
       <details><summary>Où sont hébergées les données des enfants ?</summary><p>En Europe. Vos données restent les vôtres : vous pouvez les exporter ou supprimer votre compte à tout moment.</p></details>
     </div>
