@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Démos micro-crèches · GetReward</title>
+<meta name="description" content="Trois démos sur un réseau fictif de micro-crèches : audit blanc avant la visite de la PMI, réponse à une question de paie d'une salariée, tableau RH et pilotage financier.">
+<link rel="canonical" href="https://getreward.pro/demo/creche/">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Ce que l'IA prépare pour une micro-crèche">
+<meta property="og:description" content="Audit blanc PMI, questions RH des salariées, tableau RH et pilotage financier, sur un réseau fictif.">
+<link rel="stylesheet" href="../demo.css">
+<style>
+.demo{display:grid;gap:16px}
+.demo .head{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.demo .n{font-weight:800;color:var(--accent);font-size:1.1rem}
+.demo h2{font-size:clamp(1.3rem,3.2vw,1.7rem)}
+.ask{background:var(--accent-soft);border-radius:16px;padding:14px 18px;font-style:italic}
+.ask b{font-style:normal;display:block;font-size:.85rem;color:var(--muted);margin-bottom:4px}
+.mail{background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:16px 18px;font-size:.95rem;white-space:pre-line}
+.mail .h{color:var(--muted);font-size:.85rem;margin-bottom:8px;white-space:normal}
+.rows{display:grid;gap:8px}
+.row{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;background:var(--bg);border-radius:12px;padding:10px 14px;font-size:.96rem}
+.row .pill{margin-top:2px}
+.calc{font-variant-numeric:tabular-nums;background:var(--bg);border-radius:14px;padding:14px 18px;font-size:.96rem}
+.calc div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding:4px 0}
+.calc div:last-child{border:0;font-weight:800}
+.refuse{border-left:6px solid var(--accent);padding:6px 0 6px 14px;font-size:.96rem}
+.refuse b{display:block}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{font:inherit;font-weight:700;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 16px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:620px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stats div{background:var(--bg);border-radius:14px;padding:12px 14px}
+.stats b{display:block;font-size:1.6rem;line-height:1.1}
+.stats span{font-size:.85rem;color:var(--muted)}
+.wrapt td{white-space:normal;min-width:120px}
+.link{font-weight:700;color:var(--accent)}
+</style>
+</head>
+<body>
+
+<section class="band">
+ <div class="wrap">
+  <div class="top"><a class="brand" href="/">GetReward</a><span class="tag">Démos pour les micro-crèches · réseau fictif</span></div>
+  <h1>Ce que l'IA prépare pour une micro-crèche.</h1>
+  <p class="sub">Quatre démos sur le « Réseau Exemple », inventé de toutes pièces : une crèche avec des erreurs volontaires, les questions d'une salariée, le suivi de l'équipe et les chiffres du réseau. À chaque fois, l'IA prépare et la direction décide.</p>
+  <div class="tabs">
+   <a class="cta" href="#pmi" style="font-size:.95rem;padding:10px 16px">1. Audit blanc PMI</a>
+   <a class="cta" href="#paie" style="font-size:.95rem;padding:10px 16px">2. Question de paie</a>
+   <a class="cta" href="#rh" style="font-size:.95rem;padding:10px 16px">3. Tableau RH</a>
+   <a class="cta" href="#finance" style="font-size:.95rem;padding:10px 16px">4. Pilotage financier</a>
+  </div>
+ </div>
+</section>
+
+<!-- 1. Audit blanc PMI -->
+<section class="band" id="pmi" style="padding-top:0">
+ <div class="wrap card demo">
+  <div class="head"><span class="n">1</span><h2>L'audit blanc avant la visite de la PMI</h2></div>
+  <div class="ask"><b>La directrice demande</b>J'ai une visite PMI aux Coquelicots le 15 décembre : prépare mon audit blanc et dis-moi les pièces à vérifier, sans mettre conforme ce que je ne t'ai pas fourni.</div>
+  <p>L'IA lit le dossier de la crèche (règlement, projet, protocoles, plannings, diplômes, registres) et le compare point par point aux textes en vigueur, y compris ceux qui ont changé en 2026. Elle rend une fiche de deux pages : rouge, orange, vert.</p>
+  <div class="stats">
+   <div><b>53</b><span>points contrôlés, chacun avec son texte</span></div>
+   <div><b>16</b><span>points prioritaires repérés aux Coquelicots</span></div>
+   <div><b>5</b><span>pièces à sortir en priorité</span></div>
+   <div><b>2</b><span>pages de fiche, rouge, orange, vert</span></div>
+  </div>
+  <div class="rows">
+   <div class="row"><span class="pill bad">✕ Écart</span><span><b>Fin de journée, 18 h – 18 h 30 :</b> 4 enfants avec une seule professionnelle, non diplômée.</span></div>
+   <div class="row"><span class="pill bad">✕ Écart</span><span><b>Référent santé :</b> 8 h sur 12 mois, pour un minimum de 10 h, et aucune heure au 2e trimestre.</span></div>
+   <div class="row"><span class="pill bad">✕ Écart</span><span><b>Direction :</b> 0,4 ETP au lieu de 0,5, avec la réserve du report possible de cette règle à 2027.</span></div>
+   <div class="row"><span class="pill warn">! Manquant</span><span><b>Remplaçante :</b> attestation d'honorabilité non reçue, copie du diplôme absente.</span></div>
+   <div class="row"><span class="pill warn">! Manquant</span><span><b>Protocoles :</b> pas de protocole de mise en sûreté ni de sorties, aucun exercice fait.</span></div>
+   <div class="row"><span class="pill warn">! À trancher</span><span><b>Midi, 11 h – 12 h :</b> 13 enfants pour 2 professionnelles. Conforme ou non selon l'option d'encadrement choisie, qui n'est écrite nulle part : l'IA le signale au lieu de trancher.</span></div>
+   <div class="row"><span class="pill ok">✓ Conforme</span><span><b>Qualification de l'équipe :</b> 2,6 ETP de catégorie 1 sur 4,8, soit 54 %. Calcul détaillé, professionnelle par professionnelle.</span></div>
+  </div>
+  <div class="refuse"><b>Ce qu'elle refuse de faire</b>Ouvrir la fiche d'un enfant glissée dans le dossier (elle la signale, à sortir), et mettre « conforme » un point qu'elle n'a pas vu, même quand on insiste parce que la visite est demain.</div>
+ </div>
+</section>
+
+<!-- 2. Question de paie -->
+<section class="band" id="paie" style="padding-top:0">
+ <div class="wrap card demo">
+  <div class="head"><span class="n">2</span><h2>La question de paie d'une salariée</h2></div>
+  <div class="cols">
+   <div class="mail"><div class="h">De : Camille, auxiliaire de puériculture · Objet : ma fiche de paie d'octobre</div>En octobre j'ai remplacé une collègue plusieurs fois, ça me fait 12 heures de plus que mon contrat. Elles sont payées au même taux que d'habitude.
+Une amie m'a dit que les heures en plus d'un temps partiel sont payées 11 % de plus. Est-ce que c'est normal ?</div>
+   <div class="grid" style="display:grid;gap:12px">
+    <p><b>La règle :</b> chaque heure complémentaire d'un temps partiel est majorée. La convention collective des crèches ne fixe pas de taux, on applique donc le Code du travail : 10 % jusqu'au dixième du contrat, 25 % au-delà.</p>
+    <div class="calc">
+     <div><span>Contrat de 80 h, le dixième = 8 h</span><span></span></div>
+     <div><span>8 h × 13,20 € × 1,10</span><span>116,16 €</span></div>
+     <div><span>4 h × 13,20 € × 1,25</span><span>66,00 €</span></div>
+     <div><span>Dû 182,16 €, payé 158,40 €</span><span>23,76 € brut</span></div>
+    </div>
+   </div>
+  </div>
+  <div class="rows">
+   <div class="row"><span class="pill warn">! Piège</span><span>Les « 11 % » viennent de la convention de la propreté, qui ne s'applique pas ici. L'IA l'explique et ne les reprend pas.</span></div>
+   <div class="row"><span class="pill warn">! À vérifier</span><span>Le contrat est-il décompté au mois, à la semaine ou sur l'année ? Les 12 h figurent-elles au planning réel ? Le calcul reste une estimation.</span></div>
+   <div class="row"><span class="pill ok">✓ Prêt</span><span>Un projet de réponse court et bienveillant pour Camille, sans promettre de date ni de montant, et une note de 3 lignes pour le service paie.</span></div>
+  </div>
+  <div class="refuse"><b>Ce qu'elle refuse de faire</b>Écrire une lettre de licenciement parce que la salariée menace d'aller aux prud'hommes : elle demande une validation humaine renforcée et conseille de régulariser après vérification.</div>
+ </div>
+</section>
+
+<!-- 3. Tableau RH -->
+<section class="band" id="rh" style="padding-top:0">
+ <div class="wrap card demo">
+  <div class="head"><span class="n">3</span><h2>Le tableau RH du réseau</h2></div>
+  <p>Chaque mois, l'IA rassemble ce qui manque dans les dossiers de l'équipe et ce qui arrive à échéance, crèche par crèche. Elle ne lit pas les dossiers médicaux : seulement les dates et les pièces reçues ou non.</p>
+  <div class="tablewrap"><table class="wrapt">
+   <thead><tr><th>Crèche</th><th class="num">Équipe</th><th class="num">Absences en oct.</th><th>Pièces manquantes</th><th>À prévoir</th><th>État</th></tr></thead>
+   <tbody>
+    <tr><td><b>Les Coquelicots</b></td><td class="num">10</td><td class="num">6 j</td><td>Honorabilité et diplôme de la remplaçante · visite d'embauche d'une salariée</td><td>Analyse des pratiques : 0 h pour 1 salariée</td><td><span class="pill bad">✕ À traiter</span></td></tr>
+    <tr><td><b>Les Tournesols</b></td><td class="num">10</td><td class="num">2 j</td><td>Aucune</td><td>2 entretiens professionnels en janvier</td><td><span class="pill ok">✓ Sous contrôle</span></td></tr>
+    <tr><td><b>Les Lucioles</b></td><td class="num">9</td><td class="num">4 j</td><td>Aucune</td><td>Fin de période d'essai le 04/12</td><td><span class="pill ok">✓ Sous contrôle</span></td></tr>
+    <tr><td><b>Les Hirondelles</b></td><td class="num">9</td><td class="num">14 j</td><td>Avenant au contrat d'une salariée passée à 28 h</td><td>Intérim : 2 arrêts à couvrir en novembre</td><td><span class="pill warn">! À surveiller</span></td></tr>
+   </tbody>
+  </table></div>
+  <div class="rows">
+   <div class="row"><span class="pill ok">✓ Prêt</span><span>Les mails de demande de pièces, et les invitations aux entretiens professionnels, à relire avant envoi.</span></div>
+  </div>
+ </div>
+</section>
+
+<!-- 4. Pilotage financier -->
+<section class="band" id="finance" style="padding-top:0">
+ <div class="wrap card demo">
+  <div class="head"><span class="n">4</span><h2>Le pilotage financier, crèche par crèche</h2></div>
+  <p>Occupation et coût des places vides, masse salariale, impayés des familles et des entreprises, trésorerie à 13 semaines : le board du DAF ou du gérant, préparé chaque mois, avec un commentaire en mots simples.</p>
+  <div class="stats">
+   <div><b>87 %</b><span>d'occupation du réseau</span></div>
+   <div><b>≈ 9 k€</b><span>de CA manquant par mois (places vides)</span></div>
+   <div><b>9,2 k€</b><span>d'impayés, relances prêtes</span></div>
+   <div><b>1</b><span>crèche à redresser</span></div>
+  </div>
+  <a class="cta" href="../daf-creche/">Ouvrir le board financier</a>
+ </div>
+</section>
+
+<section class="band" id="demande" style="padding-top:0">
+ <div class="wrap">
+  <h2>Laquelle vous ferait gagner le plus de temps ?</h2>
+  <p class="sub">Laissez votre e-mail : je vous propose 30 minutes pour la faire tourner sur une de vos crèches, avec des documents sans aucune donnée d'enfant. Sans engagement.</p>
+  <form id="f" novalidate>
+   <input type="hidden" name="ref">
+   <div class="hp" aria-hidden="true"><label>Ne pas remplir <input type="text" name="site" tabindex="-1" autocomplete="off"></label></div>
+   <label>E-mail professionnel<input type="email" name="email" autocomplete="email" required></label>
+   <label>Réseau ou crèche<input type="text" name="structure" autocomplete="organization" required></label>
+   <label>La démo qui vous intéresse le plus
+    <select name="volume" required><option value="">Choisir…</option><option>Audit blanc PMI</option><option>Questions RH et paie des salariées</option><option>Tableau RH</option><option>Pilotage financier</option><option>Plusieurs</option></select>
+   </label>
+   <label>Ce que vous aimeriez voir aussi (facultatif)<textarea name="remarque" rows="3"></textarea></label>
+   <label class="consent"><input type="checkbox" name="accord" value="oui" required><span>J'accepte que GetReward utilise ces informations pour me recontacter au sujet de cette démo. Elles ne sont ni revendues ni partagées. <a href="/mentions-legales/">Détails</a></span></label>
+   <p class="err" role="alert" tabindex="-1" hidden></p>
+   <button class="cta" type="submit">Je veux l'essayer sur ma crèche</button>
+  </form>
+  <div id="thanks" class="thanks" tabindex="-1" hidden><h3>Merci, c'est noté.</h3><p>Je reviens vers vous sous 24 h ouvrées. Alexandre, GetReward</p></div>
+  <p class="safe">Toutes les crèches, personnes et chiffres de cette page sont inventés. Les démos citent les textes (Code de la santé publique, Code du travail, convention collective) ; leur état est à vérifier avant toute mise en service.</p>
+ </div>
+</section>
+
+<footer>GetReward · SARL GETREWARD · Saint-Georges-d'Orques (34) · <a href="/mentions-legales/">Mentions légales et confidentialité</a> · Démonstration sur données fictives</footer>
+
+<script src="../board.js"></script>
+<script>GRForm('creche', '');</script>
+</body>
+</html>

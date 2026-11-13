@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Board DAF crèches · GetReward</title>
+<meta name="description" content="Démo sur un réseau fictif de 4 micro-crèches : occupation, masse salariale, impayés et trésorerie à 13 semaines, crèche par crèche, préparés par l'IA.">
+<link rel="canonical" href="https://getreward.pro/demo/daf-creche/">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Le pilotage financier de vos micro-crèches, crèche par crèche">
+<meta property="og:description" content="Démo sur un réseau fictif de 4 micro-crèches : places vides, masse salariale, impayés, trésorerie à 13 semaines.">
+<link rel="stylesheet" href="../demo.css">
+</head>
+<body>
+
+<section class="band">
+ <div class="wrap">
+  <div class="top"><a class="brand" href="/">GetReward</a><span class="tag">Démo pour les DAF et gérants de micro-crèches · réseau fictif</span></div>
+  <h1>Le pilotage financier de vos micro-crèches, crèche par crèche.</h1>
+  <p class="sub">L'IA lit les exports du logiciel de gestion, la paie et la banque, puis prépare chaque mois le board du réseau : occupation et coût des places vides, masse salariale, impayés des familles et des entreprises, trésorerie à 13 semaines. Vous relisez et vous décidez.</p>
+  <p class="note">Cliquez sur une ligne pour ouvrir le board d'une crèche. Survolez la courbe pour le détail de chaque semaine.</p>
+ </div>
+</section>
+
+<section class="band" style="padding-top:0">
+ <div class="wrap">
+  <h2>Réseau Exemple, octobre 2026</h2>
+  <div id="pf"></div>
+  <div id="detail" class="detail" tabindex="-1"></div>
+  <p class="note">Réseau, crèches et chiffres inventés, dans les ordres de grandeur d'une micro-crèche de 12 places en PAJE (une place vide coûte environ 1 200 à 1 700 € de chiffre d'affaires par mois). Sur de vrais dossiers, chaque chiffre renvoie à son export.</p>
+ </div>
+</section>
+
+<section class="band" style="padding-top:0">
+ <div class="wrap">
+  <h2>Les échéances que le board rappelle</h2>
+  <div class="cols">
+   <div class="card"><h3 style="margin-bottom:8px">Chaque mois</h3><ul style="margin:0;padding-left:1.1em">
+    <li>facturation des familles et déclaration pour le CMG, crèche par crèche</li><li>relance des familles en retard, avec le message prêt</li>
+    <li>paie et remplacements : leur poids dans le chiffre d'affaires</li><li>factures aux entreprises réservataires</li></ul></div>
+   <div class="card"><h3 style="margin-bottom:8px">Dans l'année</h3><ul style="margin:0;padding-left:1.1em">
+    <li>renouvellement des conventions de berceaux d'entreprise</li><li>attestations pour le crédit d'impôt des entreprises</li>
+    <li>septembre : pic d'entrées et de sorties, l'occupation à reconstruire</li><li>règles d'encadrement qui changent : impact sur la masse salariale</li></ul></div>
+  </div>
+  <p class="safe">L'IA prépare les chiffres et les explique ; elle ne tient pas la comptabilité et ne remplace ni l'expert-comptable ni le DAF. Aucune donnée d'enfant n'entre dans le board : seulement des heures, des montants et des places.</p>
+  <p>Voir aussi <a href="../creche/">les autres démos pour les micro-crèches</a> (audit blanc PMI, questions RH des salariées).</p>
+ </div>
+</section>
+
+<section class="band" id="demande" style="padding-top:0">
+ <div class="wrap">
+  <h2>Ce board pour votre réseau ?</h2>
+  <p class="sub">Laissez votre e-mail : je vous propose 30 minutes pour le monter sur les exports d'une de vos crèches. Sans engagement.</p>
+  <form id="f" novalidate>
+   <input type="hidden" name="ref">
+   <div class="hp" aria-hidden="true"><label>Ne pas remplir <input type="text" name="site" tabindex="-1" autocomplete="off"></label></div>
+   <label>E-mail professionnel<input type="email" name="email" autocomplete="email" required></label>
+   <label>Réseau ou crèche<input type="text" name="structure" autocomplete="organization" required></label>
+   <label>Nombre de crèches
+    <select name="volume" required><option value="">Choisir…</option><option>1</option><option>2 à 5</option><option>6 à 15</option><option>Plus de 15</option></select>
+   </label>
+   <label>Ce que vous voudriez voir en plus (facultatif)<textarea name="remarque" rows="3"></textarea></label>
+   <label class="consent"><input type="checkbox" name="accord" value="oui" required><span>J'accepte que GetReward utilise ces informations pour me recontacter au sujet de cette démo. Elles ne sont ni revendues ni partagées. <a href="/mentions-legales/">Détails</a></span></label>
+   <p class="err" role="alert" tabindex="-1" hidden></p>
+   <button class="cta" type="submit">Je veux ce board pour mon réseau</button>
+  </form>
+  <div id="thanks" class="thanks" tabindex="-1" hidden><h3>Merci, c'est noté.</h3><p>Je reviens vers vous sous 24 h ouvrées. Alexandre, GetReward</p></div>
+ </div>
+</section>
+
+<footer>GetReward · SARL GETREWARD · Saint-Georges-d'Orques (34) · <a href="/mentions-legales/">Mentions légales et confidentialité</a> · Démonstration sur données fictives</footer>
+
+<script src="../board.js"></script>
+<script>
+var WEEKS = ['16/11','23/11','30/11','07/12','14/12','21/12','28/12','04/01','11/01','18/01','25/01','01/02','08/02'];
+var EV = ['','Salaires','Charges sociales','Paiements des familles','','Primes de fin d\'année','Salaires · fermeture de Noël','Paiements des familles + factures entreprises','Charges sociales','','Salaires','Paiements des familles','Charges sociales'];
+GRBoard({
+ weeks: WEEKS, unit: 'k€',
+ chartNote: 'Calculée depuis la banque, les paiements attendus des familles et des entreprises, la paie et les charges sociales.',
+ columns: [{h:'Crèche'},{h:'Occupation',num:1},{h:'CA d\'octobre',num:1},{h:'Masse salariale / CA',num:1},{h:'Impayés familles',num:1}],
+ entities: [
+ {name:'Tout le réseau', sub:'4 micro-crèches · 48 places · 38 salariés', state:'warn',
+  cells:['4 crèches, 48 places','87 %','62,5 k€','66 %','4,4 k€'],
+  kpis:[{l:'Occupation',v:'87 %',n:'≈ 6 places vides en tout'},{l:'Places vides',v:'≈ 9 k€',n:'de CA manquant par mois',s:'warn'},
+   {l:'Chiffre d\'affaires',v:'62,5 k€',n:'octobre'},{l:'Masse salariale',v:'66 %',n:'du CA'},
+   {l:'Impayés',v:'9,2 k€',n:'4,4 k€ familles, 4,8 k€ entreprise',s:'warn'},{l:'Point bas prévu',v:'38 k€',n:'semaine du 11/01',s:'warn'}],
+  treso:[96,71,88,79,64,52,67,58,38,61,70,49,63], events:EV,
+  seuil:{v:41,label:'1 mois de salaires du réseau'},
+  scenario:{label:'relancer les impayés des familles et la facture de l\'entreprise réservataire', short:'Avec relances', note:'L\'IA a préparé les 6 messages ; vous les validez un par un.',
+   delta:[0,2.5,6,9.2,9.2,9.2,9.2,9.2,9.2,9.2,9.2,9.2,9.2]},
+  alertes:[{s:'bad',t:'Les Lucioles plombent le réseau',x:'71 % d\'occupation et 78 % de masse salariale : la crèche consomme la trésorerie des trois autres.'},
+   {s:'warn',t:'Sous un mois de salaires mi-janvier',x:'Primes de décembre et charges sociales tombent avant les paiements des familles. Les relances suffisent à repasser au-dessus.'},
+   {s:'ok',t:'5 familles attendent une place aux Coquelicots',x:'Les Lucioles sont à 4 km et ont 3,5 places libres : à leur proposer avant qu\'elles cherchent ailleurs.'}],
+  mot:'<p>Le réseau tient, mais il dépend des trois crèches pleines : Les Lucioles, à 71 % d\'occupation, coûtent environ 5 k€ de chiffre d\'affaires par mois.</p><p>Deux actions pour décembre : orienter vers Les Lucioles les familles en liste d\'attente aux Coquelicots, et envoyer les relances préparées (9,2 k€ en attente). Avec elles, la trésorerie reste au-dessus d\'un mois de salaires tout l\'hiver.</p>'},
+ {name:'Les Coquelicots', sub:'12 places · 10 salariés · ouverte depuis 2019', state:'ok',
+  cells:['12 places','96 %','17,3 k€','61 %','0,4 k€'],
+  kpis:[{l:'Occupation',v:'96 %',n:'liste d\'attente : 5 familles'},{l:'Chiffre d\'affaires',v:'17,3 k€',n:'octobre'},
+   {l:'Masse salariale',v:'61 %',n:'du CA'},{l:'Impayés familles',v:'0,4 k€',n:'1 famille, 12 jours'},
+   {l:'Prix moyen facturé',v:'9,40 €/h',n:'plafond pour le CMG : 10 €/h'},{l:'Berceaux d\'entreprise',v:'3',n:'factures à jour'}],
+  treso:[31,24,29,26,21,18,23,20,14,21,24,17,22], events:EV,
+  seuil:{v:10.5,label:'1 mois de salaires'},
+  alertes:[{s:'ok',t:'Pleine et rentable',x:'Meilleure marge du réseau ; la trésorerie reste au-dessus d\'un mois de salaires sur les 13 semaines.'},
+   {s:'ok',t:'Une liste d\'attente à valoriser',x:'5 familles attendent : leur proposer Les Lucioles, et prévoir les départs de septembre.'}],
+  mot:'<p>Rien d\'urgent : la crèche est pleine, les familles paient à l\'heure, la trésorerie est saine.</p><p>Le seul sujet est la liste d\'attente de 5 familles, qui peut remplir Les Lucioles si on la leur propose maintenant.</p>'},
+ {name:'Les Tournesols', sub:'12 places · 10 salariés · ouverte depuis 2021', state:'ok',
+  cells:['12 places','92 %','16,6 k€','63 %','1,1 k€'],
+  kpis:[{l:'Occupation',v:'92 %',n:'1 place libre en janvier'},{l:'Chiffre d\'affaires',v:'16,6 k€',n:'octobre'},
+   {l:'Masse salariale',v:'63 %',n:'du CA'},{l:'Impayés familles',v:'1,1 k€',n:'2 familles, 20 et 34 jours',s:'warn'},
+   {l:'Prix moyen facturé',v:'9,20 €/h'},{l:'Berceaux d\'entreprise',v:'2',n:'factures à jour'}],
+  treso:[27,21,25,22,18,15,19,16,11,17,20,14,19], events:EV,
+  seuil:{v:10.5,label:'1 mois de salaires'},
+  alertes:[{s:'warn',t:'Deux familles en retard',x:'1,1 k€ au total. Les messages de relance sont prêts, sur un ton cordial.'},
+   {s:'warn',t:'Point bas juste au-dessus de la réserve',x:'11 k€ la semaine du 11/01, pour 10,5 k€ de salaires mensuels.'}],
+  mot:'<p>La crèche va bien. Deux familles ont un peu de retard (1,1 k€) : une relance cordiale suffit, elle est prête.</p><p>Une place se libère en janvier : la proposer dès maintenant à la liste d\'attente des Coquelicots.</p>'},
+ {name:'Les Lucioles', sub:'12 places · 9 salariés · ouverte en septembre 2025', state:'bad',
+  cells:['12 places','71 %','12,8 k€','78 %','0,3 k€'],
+  kpis:[{l:'Occupation',v:'71 %',n:'3,5 places vides',s:'bad'},{l:'Places vides',v:'≈ 5,2 k€',n:'de CA manquant par mois',s:'bad'},
+   {l:'Masse salariale',v:'78 %',n:'du CA',s:'warn'},{l:'Chiffre d\'affaires',v:'12,8 k€',n:'octobre'},
+   {l:'Point bas prévu',v:'−3 k€',n:'semaine du 11/01',s:'bad'},{l:'Berceaux d\'entreprise',v:'0',n:'aucune convention'}],
+  treso:[14,9,12,8,5,2,5,1,-3,1,3,-2,1], events:EV,
+  seuil:{v:10,label:'1 mois de salaires'},
+  scenario:{label:'accueillir en janvier 2 familles de la liste d\'attente des Coquelicots', short:'+2 familles en janvier', note:'Évite le découvert, mais ne reconstitue pas la réserve : il faut aussi des berceaux d\'entreprise.',
+   delta:[0,0,0,0,0,0,0,0,3,3,3,6,6]},
+  alertes:[{s:'bad',t:'3,5 places vides, environ 5,2 k€ par mois',x:'La crèche n\'a pas encore trouvé son rythme de remplissage, 14 mois après son ouverture.'},
+   {s:'bad',t:'Découvert prévu mi-janvier',x:'La trésorerie reste sous un mois de salaires tout l\'hiver.'},
+   {s:'warn',t:'Équipe prévue pour une crèche pleine',x:'Avant toute réduction, vérifier le taux d\'encadrement créneau par créneau : l\'audit blanc PMI le calcule.'}],
+  mot:'<p>Les Lucioles sont le sujet du mois. Avec 3,5 places vides, il manque environ 5,2 k€ de chiffre d\'affaires chaque mois, et le compte passerait à −3 k€ mi-janvier.</p><p>Le levier le plus rapide : proposer les places aux familles en attente aux Coquelicots. Le levier durable : signer des berceaux avec deux ou trois entreprises proches.</p>'},
+ {name:'Les Hirondelles', sub:'12 places · 9 salariés · ouverte depuis 2022', state:'warn',
+  cells:['12 places','88 %','15,8 k€','66 %','2,6 k€'],
+  kpis:[{l:'Occupation',v:'88 %'},{l:'Chiffre d\'affaires',v:'15,8 k€',n:'octobre'},
+   {l:'Masse salariale',v:'66 %',n:'dont 1,4 k€ d\'intérim'},{l:'Impayés familles',v:'2,6 k€',n:'3 familles, plus de 30 jours',s:'warn'},
+   {l:'Facture entreprise',v:'4,8 k€',n:'impayée depuis 45 jours',s:'warn'},{l:'Point bas prévu',v:'5 k€',n:'semaine du 11/01',s:'warn'}],
+  treso:[19,13,16,12,8,10,12,7,5,9,12,8,11], events:EV,
+  seuil:{v:10.4,label:'1 mois de salaires'},
+  scenario:{label:'relancer les 3 familles et l\'entreprise réservataire', short:'Avec relances', note:'7,4 k€ en attente ; messages prêts, à valider.',
+   delta:[0,1.5,4,7.4,7.4,7.4,7.4,7.4,7.4,7.4,7.4,7.4,7.4]},
+  alertes:[{s:'warn',t:'7,4 k€ en attente de paiement',x:'Trois familles depuis plus de 30 jours, et la facture du 3e trimestre de l\'entreprise réservataire depuis 45 jours.'},
+   {s:'warn',t:'Intérim en hausse',x:'1,4 k€ d\'intérim en octobre pour couvrir deux arrêts : à suivre en novembre.'}],
+  mot:'<p>La crèche fonctionne bien, mais 7,4 k€ ne sont pas encore payés, dont une facture d\'entreprise de 4,8 k€.</p><p>Les relances sont prêtes. Une fois encaissées, la trésorerie reste au-dessus d\'un mois de salaires tout l\'hiver.</p>'}
+ ]
+});
+GRForm('daf-creche', '');
+</script>
+</body>
+</html>

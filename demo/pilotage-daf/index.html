@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Board DAF · GetReward</title>
+<meta name="description" content="Démo sur 4 PME fictives : le board mensuel de chaque client d'un DAF à temps partagé, préparé par l'IA depuis la banque et la compta. Le DAF relit et conseille.">
+<link rel="canonical" href="https://getreward.pro/demo/pilotage-daf/">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Le board de chacun de vos clients, prêt en début de mois">
+<meta property="og:description" content="Démo sur 4 PME fictives : trésorerie à 13 semaines, alertes et commentaire du mois préparés par l'IA.">
+<link rel="stylesheet" href="../demo.css">
+</head>
+<body>
+
+<section class="band">
+ <div class="wrap">
+  <div class="top"><a class="brand" href="/">GetReward</a><span class="tag">Démo pour les DAF à temps partagé · 4 PME fictives</span></div>
+  <h1>Le board de chacun de vos clients, prêt en début de mois.</h1>
+  <p class="sub">L'IA lit les relevés bancaires, la balance et les factures, puis prépare pour chaque client la trésorerie à 13 semaines, les alertes et un commentaire en mots simples pour le dirigeant. Vous relisez, vous corrigez, vous conseillez.</p>
+  <p class="note">Cliquez sur une entreprise pour ouvrir son board. Survolez la courbe pour le détail de chaque semaine.</p>
+ </div>
+</section>
+
+<section class="band" style="padding-top:0">
+ <div class="wrap">
+  <h2>Votre portefeuille au 16 novembre</h2>
+  <div id="pf"></div>
+  <div id="detail" class="detail" tabindex="-1"></div>
+  <p class="note">Toutes les entreprises et tous les chiffres de cette page sont inventés. Sur de vrais dossiers, les chiffres viennent des exports de la banque, du logiciel comptable et de la facturation, et chacun renvoie à sa source.</p>
+ </div>
+</section>
+
+<section class="band" style="padding-top:0">
+ <div class="wrap">
+  <h2>Ce que le DAF ne fait plus à la main</h2>
+  <div class="cols">
+   <div class="card"><h3 style="margin-bottom:8px">Chaque mois, pour chaque client</h3><ul style="margin:0;padding-left:1.1em">
+    <li>rapprocher la banque et les factures en attente</li><li>refaire le plan de trésorerie à 13 semaines</li>
+    <li>repérer les retards de paiement, la marge qui glisse, le stock qui dort</li><li>écrire le commentaire au dirigeant</li></ul></div>
+   <div class="card"><h3 style="margin-bottom:8px">Ce qui reste à vous</h3><ul style="margin:0;padding-left:1.1em">
+    <li>valider les chiffres et les hypothèses</li><li>choisir les priorités avec le dirigeant</li>
+    <li>parler à la banque et à l'expert-comptable</li><li>décider</li></ul></div>
+  </div>
+  <p class="safe">L'IA prépare et explique, elle ne tient pas la comptabilité et ne remplace ni l'expert-comptable ni le DAF. Les données restent dans vos outils et ceux de vos clients.</p>
+ </div>
+</section>
+
+<section class="band" id="demande" style="padding-top:0">
+ <div class="wrap">
+  <h2>Ce board pour vos clients ?</h2>
+  <p class="sub">Laissez votre e-mail : je vous propose 30 minutes pour le monter sur un de vos dossiers, anonymisé. Sans engagement.</p>
+  <form id="f" novalidate>
+   <input type="hidden" name="ref">
+   <div class="hp" aria-hidden="true"><label>Ne pas remplir <input type="text" name="site" tabindex="-1" autocomplete="off"></label></div>
+   <label>E-mail professionnel<input type="email" name="email" autocomplete="email" required></label>
+   <label>Cabinet ou entreprise<input type="text" name="structure" autocomplete="organization" required></label>
+   <label>Nombre de clients suivis
+    <select name="volume" required><option value="">Choisir…</option><option>Je suis dirigeant, une seule entreprise</option><option>1 à 5</option><option>6 à 15</option><option>Plus de 15</option></select>
+   </label>
+   <label>Ce que vous voudriez voir en plus (facultatif)<textarea name="remarque" rows="3"></textarea></label>
+   <label class="consent"><input type="checkbox" name="accord" value="oui" required><span>J'accepte que GetReward utilise ces informations pour me recontacter au sujet de cette démo. Elles ne sont ni revendues ni partagées. <a href="/mentions-legales/">Détails</a></span></label>
+   <p class="err" role="alert" tabindex="-1" hidden></p>
+   <button class="cta" type="submit">Je veux ce board pour mes clients</button>
+  </form>
+  <div id="thanks" class="thanks" tabindex="-1" hidden><h3>Merci, c'est noté.</h3><p>Je reviens vers vous sous 24 h ouvrées. Alexandre, GetReward</p></div>
+ </div>
+</section>
+
+<footer>GetReward · SARL GETREWARD · Saint-Georges-d'Orques (34) · <a href="/mentions-legales/">Mentions légales et confidentialité</a> · Démonstration sur données fictives</footer>
+
+<script src="../board.js"></script>
+<script>
+var WEEKS = ['16/11','23/11','30/11','07/12','14/12','21/12','28/12','04/01','11/01','18/01','25/01','01/02','08/02'];
+GRBoard({
+ weeks: WEEKS, unit: 'k€',
+ columns: [{h:'Entreprise'},{h:'CA annuel',num:1},{h:'Trésorerie',num:1},{h:'Point bas à 13 sem.',num:1},{h:'Marge brute',num:1}],
+ entities: [
+ {name:'Cave des Garrigues', sub:'Caviste et bar à vins · 6 salariés · CA 1,1 M€', state:'bad',
+  cells:['Caviste, 6 salariés','1,1 M€','42 k€','−6 k€','34 %'],
+  kpis:[{l:'Trésorerie aujourd\'hui',v:'42 k€'},{l:'Point bas prévu',v:'−6 k€',n:'semaine du 07/12',s:'bad'},
+   {l:'Marge brute',v:'34 %',n:'36 % il y a un an',s:'warn'},{l:'Stock',v:'9,5 mois',n:'de ventes',s:'warn'},
+   {l:'Délai clients',v:'12 j'},{l:'Délai fournisseurs',v:'28 j',n:'la loi permet 60 j'}],
+  treso:[42,28,9,-6,4,31,74,68,41,34,30,27,33],
+  events:['Salaires','Commandes des fêtes : 1er règlement','Commandes des fêtes : 2e règlement','TVA de novembre + URSSAF','','Ventes des fêtes','Ventes des fêtes','TVA de décembre','Salaires + primes','','','URSSAF',''],
+  seuil:{v:0,label:'Compte à zéro'},
+  scenario:{label:'payer les fournisseurs des fêtes à 45 jours au lieu de 28', short:'Fournisseurs à 45 j', note:'Reste dans le délai légal de 60 jours ; à négocier avec les deux principaux fournisseurs.',
+   delta:[0,8,14,14,10,4,0,-4,-8,-10,-6,-6,-4]},
+  alertes:[{s:'bad',t:'Découvert de 6 k€ prévu début décembre',x:'Les achats des fêtes (68 k€) sont payés avant les ventes. Pistes : étaler deux commandes fournisseurs, ou demander à la banque une facilité de caisse pour trois semaines.'},
+   {s:'warn',t:'La marge recule de 2 points',x:'Les rouges du Languedoc sont vendus en promotion depuis septembre. Si ça continue, c\'est environ 11 k€ de marge en moins sur l\'année.'},
+   {s:'warn',t:'31 k€ de stock sans vente depuis 6 mois',x:'Surtout des cuvées 2021. Une vente privée en janvier libérerait de la trésorerie.'}],
+  mot:'<p>Novembre est le mois le plus tendu de l\'année : vous payez Noël avant de le vendre. Sans rien changer, le compte passe à −6 k€ la semaine du 7 décembre, puis remonte nettement avec les ventes des fêtes.</p><p>Deux leviers simples : demander 45 jours à vos deux principaux fournisseurs, ce qui suffit à rester positif, et revoir les promotions sur les rouges qui coûtent de la marge.</p>'},
+ {name:'Menuiserie Roussel', sub:'Menuiserie et agencement · 14 salariés · CA 2,3 M€', state:'warn',
+  cells:['Menuiserie, 14 salariés','2,3 M€','118 k€','22 k€','41 %'],
+  kpis:[{l:'Trésorerie aujourd\'hui',v:'118 k€'},{l:'Point bas prévu',v:'22 k€',n:'semaine du 04/01'},
+   {l:'Délai clients',v:'68 j',n:'45 j il y a un an',s:'warn'},{l:'Factures en retard',v:'96 k€',n:'3 chantiers, plus de 60 j',s:'warn'},
+   {l:'Marge brute',v:'41 %'},{l:'Carnet de commandes',v:'5,2 mois'}],
+  treso:[118,96,74,51,39,62,44,22,31,48,40,55,61],
+  events:['','Salaires','Achats bois','URSSAF + TVA','','Acompte chantier Lattes','Salaires + 13e mois','URSSAF + TVA','','Acompte chantier Castries','Salaires','Solde chantier Grabels',''],
+  seuil:{v:30,label:'Réserve d\'un mois de charges'},
+  scenario:{label:'relancer les 3 factures en retard et en encaisser la moitié en décembre', short:'Avec relances', note:'L\'IA a préparé les trois relances, avec les factures et les dates de réception des travaux.',
+   delta:[0,16,32,48,48,48,48,48,48,48,48,48,48]},
+  alertes:[{s:'warn',t:'Les clients paient 3 semaines plus tard qu\'il y a un an',x:'Trois chantiers terminés en septembre ne sont pas réglés (96 k€). Les relances sont prêtes à partir après votre accord.'},
+   {s:'warn',t:'Passage sous la réserve début janvier',x:'Le 13e mois et les charges tombent avant le solde du chantier de Grabels.'},
+   {s:'ok',t:'Carnet de commandes solide',x:'5,2 mois de travail signés, avec des acomptes de 30 % : l\'activité n\'est pas en cause, seulement les encaissements.'}],
+  mot:'<p>L\'activité va bien, ce sont les paiements qui traînent : vos clients règlent en 68 jours contre 45 l\'an dernier. Trois chantiers terminés représentent 96 k€ en attente.</p><p>Si la moitié est encaissée en décembre, janvier passe sans difficulté. Les relances sont prêtes : il suffit de les valider.</p>'},
+ {name:'Agence Sémaphore', sub:'Agence de communication · 5 salariés · CA 640 k€', state:'warn',
+  cells:['Communication, 5 salariés','640 k€','85 k€','61 k€','72 %'],
+  kpis:[{l:'Trésorerie aujourd\'hui',v:'85 k€'},{l:'Point bas prévu',v:'61 k€',n:'semaine du 04/01'},
+   {l:'Marge brute',v:'72 %'},{l:'Premier client',v:'41 %',n:'du chiffre d\'affaires',s:'warn'},
+   {l:'Délai clients',v:'38 j'},{l:'Résultat prévu 2026',v:'58 k€'}],
+  treso:[85,79,92,74,70,83,77,61,72,80,68,76,84],
+  events:['','Salaires','Facture client principal','URSSAF + TVA','','','Salaires','URSSAF + TVA + CFE','','','Salaires','',''],
+  seuil:{v:30,label:'Réserve de 2 mois de salaires'},
+  scenario:{label:'perte du premier client au 1er février', short:'Sans le premier client', note:'Test de résistance : le contrat se renouvelle en janvier.',
+   delta:[0,0,0,0,0,0,0,0,0,0,0,-28,-58]},
+  alertes:[{s:'ok',t:'Trésorerie confortable',x:'Le point bas reste au double de la réserve visée.'},
+   {s:'warn',t:'Un client pèse 41 % du chiffre d\'affaires',x:'Son contrat se renouvelle en janvier. Sans lui, la trésorerie passerait sous la réserve dès début février.'}],
+  mot:'<p>Les comptes sont sains et la trésorerie confortable. Le seul vrai risque est la dépendance à votre premier client, dont le contrat se renouvelle en janvier.</p><p>À préparer dès maintenant : le rendez-vous de renouvellement, et deux ou trois prospects pour réduire ce poids dans l\'année.</p>'},
+ {name:'Le Comptoir du Lez', sub:'Restaurant · 11 salariés · CA 890 k€', state:'bad',
+  cells:['Restaurant, 11 salariés','890 k€','9 k€','−21 k€','68 %'],
+  kpis:[{l:'Trésorerie aujourd\'hui',v:'9 k€',s:'warn'},{l:'Point bas prévu',v:'−21 k€',n:'semaine du 11/01',s:'bad'},
+   {l:'Masse salariale',v:'44 %',n:'du chiffre d\'affaires',s:'warn'},{l:'Échéance de prêt',v:'18 k€',n:'le 05/01'},
+   {l:'Marge brute',v:'68 %'},{l:'Couverts par jour',v:'96',n:'104 l\'an dernier'}],
+  treso:[9,4,12,7,18,26,15,-3,-21,-14,-9,-16,-11],
+  events:['','Salaires','','URSSAF + TVA','','Réveillons','','Échéance de prêt annuelle','Salaires + URSSAF','','Fermeture 1 semaine','TVA',''],
+  seuil:{v:0,label:'Compte à zéro'},
+  scenario:{label:'étaler l\'échéance de prêt de janvier sur 6 mois', short:'Échéance étalée', note:'Demande à faire à la banque avant le 15 décembre ; ne suffit pas seule.',
+   delta:[0,0,0,0,0,0,0,15,15,15,15,12,12]},
+  alertes:[{s:'bad',t:'Découvert à partir de janvier, jusqu\'à −21 k€',x:'L\'échéance annuelle du prêt (18 k€) tombe au moment le plus creux de l\'année.'},
+   {s:'warn',t:'Les salaires pèsent 44 % du chiffre d\'affaires',x:'La fréquentation a baissé de 8 % alors que l\'équipe est restée la même.'},
+   {s:'warn',t:'Étaler le prêt ne suffit pas',x:'Même étalée, la trésorerie reste négative mi-janvier : il faut un second levier (fermeture plus longue, horaires, carte).'}],
+  mot:'<p>Janvier sera difficile : l\'échéance du prêt arrive en pleine période creuse, et le compte passerait à −21 k€ mi-janvier.</p><p>Il faut en parler à la banque dès maintenant pour étaler l\'échéance, et décider d\'un second levier avant les fêtes. Je vous propose qu\'on regarde ensemble les plannings de janvier.</p>'}
+ ]
+});
+GRForm('pilotage-daf', '');
+</script>
+</body>
+</html>
