@@ -150,6 +150,9 @@
       if (!endpoint) {
         var lines = []; data.forEach(function (v, k) { if (['site', 'type', 'accord'].indexOf(k) < 0 && v) lines.push(k + ' : ' + v); });
         location.href = 'mailto:contact@getreward.pro?subject=' + encodeURIComponent('Démo ' + domaine) + '&body=' + encodeURIComponent(lines.join('\n'));
+        // Sans script Google, rien n'est envoyé par la page : on ne dit pas « c'est noté ».
+        var th = document.getElementById('thanks');
+        th.innerHTML = '<h3>Votre messagerie s\'ouvre avec le message prêt.</h3><p>Il ne reste qu\'à l\'envoyer. Si rien ne s\'ouvre, écrivez à <b>contact@getreward.pro</b> en indiquant votre structure : je vous réponds sous 24 h ouvrées.</p>';
         done(); return;
       }
       send.disabled = true; send.textContent = 'Envoi…';

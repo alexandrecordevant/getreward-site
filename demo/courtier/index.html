@@ -146,7 +146,9 @@ f.addEventListener('submit', function (ev) {
   if (!ENDPOINT) {
     var lines = []; body.forEach(function (v, k) { if (['site', 'type', 'accord'].indexOf(k) < 0 && v) lines.push(k + ' : ' + v); });
     location.href = 'mailto:contact@getreward.pro?subject=' + encodeURIComponent('Démo courtier') + '&body=' + encodeURIComponent(lines.join('\n'));
-    f.hidden = true; var t0 = document.getElementById('thanks'); t0.hidden = false; t0.focus(); return;
+    var t0 = document.getElementById('thanks');
+    t0.innerHTML = '<h3>Votre messagerie s\'ouvre avec le message prêt.</h3><p>Il ne reste qu\'à l\'envoyer. Si rien ne s\'ouvre, écrivez à <b>contact@getreward.pro</b> en indiquant votre agence : je vous réponds sous 24 h ouvrées.</p>';
+    f.hidden = true; t0.hidden = false; t0.focus(); return;
   }
   send.disabled = true; send.textContent = 'Envoi…';
   fetch(ENDPOINT, {method: 'POST', mode: 'no-cors', body: body}).then(function () {
