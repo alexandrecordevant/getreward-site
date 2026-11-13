@@ -1,6 +1,6 @@
 /* Thème micro-crèche : doux et enfantin. Crème, corail, menthe et ciel ; titres ronds ; grands arrondis ; pois en fond. */
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap");
-@import url("_commun.css");
+@import url("_commun.css?v=20261114");
 :root{--bg:#fff7ec;--surface:#ffffff;--ink:#2e2a4d;--muted:#676384;--line:#f1dfc6;--accent:#c2452f;--accent-soft:#ffe5db;--on-accent:#fff;
 --mint:#7cc8a5;--sky:#62ace6;--sun:#ffc857;--ok-soft:#e1f4ea;--warn-soft:#fff1cf;
 --bg-deco:radial-gradient(circle at 12px 12px,rgba(98,172,230,.14) 3px,transparent 3.5px) 0 0/48px 48px,radial-gradient(circle at 36px 36px,rgba(255,200,87,.2) 3px,transparent 3.5px) 0 0/48px 48px,#fff7ec;

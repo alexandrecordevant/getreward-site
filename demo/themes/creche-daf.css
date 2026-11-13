@@ -1,6 +1,6 @@
 /* Thème DAF d'un réseau de crèches : le monde de la crèche (rondeurs, Nunito) en version gestion. Sauge, prune, crème. */
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700;800&display=swap");
-@import url("_commun.css");
+@import url("_commun.css?v=20261114");
 :root{--bg:#f8f5ef;--surface:#ffffff;--ink:#23283a;--muted:#5f6577;--line:#e3ddd1;--accent:#2f6b5e;--accent-soft:#e0eeea;--on-accent:#fff;
 --s1:#2f6b5e;--s2:#b04a6a;--grid:#ebe5da;
 --font-title:"Fredoka","Nunito",system-ui,sans-serif;--font-text:"Nunito","Segoe UI",system-ui,sans-serif;--title-weight:600;--title-spacing:0;

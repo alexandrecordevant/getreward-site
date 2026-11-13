@@ -1,6 +1,6 @@
 /* Thème pilotage financier : rigueur du chiffre, esprit « lettre financière ». Papier, vert sapin, titres à empattements, chiffres en Plex Mono. */
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap");
-@import url("_commun.css");
+@import url("_commun.css?v=20261114");
 :root{--bg:#f3f3ef;--surface:#ffffff;--ink:#121820;--muted:#58606c;--line:#d9d9d1;--accent:#0b5a48;--accent-soft:#dfece7;--on-accent:#fff;
 --s1:#1d5f8a;--s2:#b5652a;--grid:#e6e6df;
 --font-title:"IBM Plex Serif",Georgia,serif;--font-text:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;--font-num:"IBM Plex Mono",Consolas,monospace;
