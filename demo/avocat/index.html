@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Démo avocats · GetReward</title>
+<meta name="description" content="1 min 25 sur un dossier fictif : après le rendez-vous, l'IA prépare le compte rendu sourcé, vérifie les conflits d'intérêts, remplit la convention d'honoraires et le mail au client. L'avocat relit et signe.">
+<link rel="canonical" href="https://getreward.pro/demo/avocat/">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Le rendez-vous est fini, le dossier est prêt à relire">
+<meta property="og:description" content="Démo d'1 min 25 sur un dossier fictif : compte rendu, convention d'honoraires et mail au client prêts à relire.">
+<meta property="og:image" content="https://getreward.pro/demo/avocat/affiche.jpg">
+<style>
+/* Page de démo avocat : même gabarit que la démo courtier */
+:root{--bg:#f4f1ea;--surface:#fffdf8;--ink:#17222a;--muted:#5a6670;--line:#ddd8cc;--accent:#0f5c63;--accent-soft:#dcebea;
+--on-accent:#fff;--ok-soft:#e3f0e1;--warn-soft:#fbefd2;--bad:#a3301b;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#10171c;--surface:#172129;--ink:#e4eaec;--muted:#9aa8b0;
+--line:#2b3841;--accent:#6cc3c8;--accent-soft:#1d3539;--on-accent:#0d1a1d;--ok-soft:#1f3320;--warn-soft:#382c12;--bad:#f19a85;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10171c;--surface:#172129;--ink:#e4eaec;--muted:#9aa8b0;--line:#2b3841;--accent:#6cc3c8;
+--accent-soft:#1d3539;--on-accent:#0d1a1d;--ok-soft:#1f3320;--warn-soft:#382c12;--bad:#f19a85;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{line-height:1.12;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+a{color:inherit}
+.band{padding:clamp(32px,5vw,64px) max(16px,env(safe-area-inset-right,0px)) clamp(32px,5vw,64px) max(16px,env(safe-area-inset-left,0px))}
+.wrap{max-width:860px;margin-inline:auto;display:grid;gap:clamp(18px,3vw,28px)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:.95rem}
+.brand{font-weight:800;color:var(--accent);text-decoration:none;font-size:1.15rem}
+.tag{color:var(--muted)}
+h1{font-size:clamp(2rem,6vw,3.3rem);font-weight:800}
+.sub{color:var(--muted);font-size:1.12rem;max-width:60ch}
+video{width:100%;max-width:860px;aspect-ratio:16/9;border-radius:20px;background:#000;display:block;justify-self:center;border:2px solid var(--line)}
+.cta{justify-self:center;display:inline-block;background:var(--accent);color:var(--on-accent);font-weight:700;font-size:1.1rem;
+text-decoration:none;border-radius:14px;padding:16px 26px;border:0;cursor:pointer;font-family:inherit}
+.cta:hover{filter:brightness(1.08)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{background:var(--surface);border:2px solid var(--line);border-radius:18px;overflow:hidden;min-width:0}
+.step img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+.step div{padding:14px 16px}
+.step h3{font-size:1.1rem}
+.step p{font-size:.98rem;color:var(--muted)}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cmp>div{border-radius:18px;padding:20px 22px}
+.cmp b{display:block;font-size:clamp(1.6rem,5vw,2.4rem);line-height:1.1}
+.cmp ul{margin:10px 0 0;padding-left:1.1em;font-size:.98rem}
+.a{background:var(--warn-soft)} .b{background:var(--ok-soft)}
+@media(max-width:560px){.cmp{grid-template-columns:1fr}}
+.note{font-size:.92rem;color:var(--muted)}
+.safe{background:var(--accent-soft);border-radius:18px;padding:18px 22px;font-weight:600}
+form{background:var(--surface);border:2px solid var(--line);border-radius:22px;padding:24px 22px;display:grid;gap:16px}
+label{display:grid;gap:6px;font-weight:600}
+input,select{font:inherit;font-weight:400;padding:12px 14px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+input:focus,select:focus{outline:3px solid var(--accent);outline-offset:1px}
+.hp{position:absolute;left:-9999px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.95rem}
+.consent input{width:auto;margin-top:4px}
+#err{color:var(--bad);font-weight:600}
+#thanks{background:var(--ok-soft);border-radius:22px;padding:24px}
+footer{text-align:center;font-size:.9rem;color:var(--muted);padding:24px 16px 40px}
+</style>
+</head>
+<body>
+
+<section class="band">
+ <div class="wrap">
+  <div class="top"><a class="brand" href="/">GetReward</a><span class="tag">Démo pour les cabinets d'avocats · dossier fictif</span></div>
+  <h1>Le rendez-vous est fini. Le dossier est prêt à relire.</h1>
+  <p class="sub">1 min 25 sur un dossier inventé mais typique, trois factures impayées : l'IA lit vos notes et les pièces, rédige le compte rendu avec la source de chaque fait, vérifie les conflits d'intérêts, remplit votre convention d'honoraires et prépare le mail au client. Vous relisez et vous signez.</p>
+  <video id="v" src="demo-avocat.mp4" poster="affiche.jpg" controls playsinline muted preload="metadata"></video>
+  <a class="cta" href="#demande">Je veux voir ça sur mes dossiers</a>
+ </div>
+</section>
+
+<section class="band" style="padding-top:0">
+ <div class="wrap">
+  <h2>Ce que fait l'IA, en 3 temps</h2>
+  <div class="steps">
+   <div class="step"><img src="etape-1.jpg" alt="Les notes du rendez-vous et les pièces du client glissées de l'explorateur de fichiers vers l'assistant" loading="lazy"><div><h3>1. Vous déposez vos notes</h3><p>Notes du rendez-vous, devis, factures, relances, Kbis : glissés depuis le dossier du client. L'IA les lit tous et reconstitue la chronologie.</p></div></div>
+   <div class="step"><img src="etape-2.jpg" alt="Compte rendu du rendez-vous, chaque montant relié à sa facture" loading="lazy"><div><h3>2. Elle rédige le compte rendu</h3><p>Chaque fait renvoie à sa pièce. Elle signale l'écart entre vos notes et les factures, et vérifie que l'adversaire n'est pas dans vos dossiers.</p></div></div>
+   <div class="step"><img src="etape-3.jpg" alt="Mail au client avec la convention d'honoraires jointe et les pièces à transmettre" loading="lazy"><div><h3>3. Elle prépare la convention et le mail</h3><p>Votre modèle de convention, rempli avec votre barème. Le mail au client liste les 4 pièces à demander. Rien ne part sans vous.</p></div></div>
+  </div>
+
+  <div class="cmp">
+   <div class="a"><span>À la main</span><b>1 h à 1 h 30</b><ul><li>reprendre ses notes et les pièces</li><li>rédiger le compte rendu</li><li>vérifier les conflits d'intérêts</li><li>remplir la convention, écrire au client</li></ul></div>
+   <div class="b"><span>Avec l'IA</span><b>≈ 15 min</b><ul><li>relire le compte rendu</li><li>trancher les points signalés</li><li>relire et signer la convention</li><li>envoyer le mail</li></ul></div>
+  </div>
+  <p class="note">Durées estimées sur ce dossier fictif, à mesurer sur les vôtres.</p>
+
+  <p class="safe">L'IA prépare des brouillons, l'avocat garde le conseil, la décision et la signature. Elle ne donne aucun avis juridique, travaille à côté de votre logiciel de gestion, et vos pièces restent dans les outils du cabinet, sous votre secret professionnel.</p>
+ </div>
+</section>
+
+<section class="band" id="demande" style="padding-top:0">
+ <div class="wrap">
+  <h2>La même chose sur un de vos dossiers ?</h2>
+  <p class="sub">Laissez votre e-mail : je vous propose 20 minutes pour faire le même travail sur un dossier type de votre cabinet, anonymisé. Sans engagement.</p>
+  <form id="f" novalidate>
+   <input type="hidden" name="domaine" value="avocat">
+   <input type="hidden" name="ref" id="ref">
+   <div class="hp" aria-hidden="true"><label>Ne pas remplir <input type="text" name="site" tabindex="-1" autocomplete="off"></label></div>
+   <label>E-mail professionnel<input type="email" name="email" autocomplete="email" required></label>
+   <label>Cabinet<input type="text" name="structure" autocomplete="organization" required></label>
+   <label>Avocats au cabinet
+    <select name="volume" required>
+     <option value="">Choisir…</option><option>1 (exercice seul)</option><option>2 ou 3</option><option>4 ou 5</option><option>Plus de 5</option>
+    </select>
+   </label>
+   <label class="consent"><input type="checkbox" name="accord" value="oui" required><span>J'accepte que GetReward utilise ces informations pour me recontacter au sujet de cette démo. Elles ne sont ni revendues ni partagées. <a href="/mentions-legales/">Détails</a></span></label>
+   <p id="err" role="alert" tabindex="-1" hidden></p>
+   <button class="cta" id="send" type="submit">Je veux voir ça sur mes dossiers</button>
+  </form>
+  <div id="thanks" tabindex="-1" hidden><h3>Merci, c'est noté.</h3><p>Je reviens vers vous sous 24 h ouvrées pour caler 20 minutes. Alexandre, GetReward</p></div>
+ </div>
+</section>
+
+<footer>GetReward · SARL GETREWARD · Saint-Georges-d'Orques (34) · <a href="/mentions-legales/">Mentions légales et confidentialité</a> · Démonstration sur données fictives</footer>
+
+<script>
+// Script Google (Apps Script) qui écrit dans l'onglet « Démos » du Google Sheet « Prospection GetReward ».
+// Code à déployer : fabrique/scripts/apps-script-demos.gs. Tant qu'il est vide, le formulaire renvoie vers l'e-mail.
+var ENDPOINT = "";
+var ref = "";
+try { ref = (new URLSearchParams(location.search).get('r') || '').replace(/[^0-9A-Za-z-]/g, '').slice(0, 20); } catch (e) {}
+document.getElementById('ref').value = ref;
+
+function ping(type) {
+  if (!ENDPOINT || !ref) return;
+  var b = new URLSearchParams({type: type, domaine: 'avocat', ref: ref});
+  try { fetch(ENDPOINT, {method: 'POST', mode: 'no-cors', body: b, keepalive: true}); } catch (e) {}
+}
+ping('vue');
+var v = document.getElementById('v'), played = false, ended = false;
+v.addEventListener('play', function () { if (!played) { played = true; ping('lecture'); } });
+v.addEventListener('ended', function () { if (!ended) { ended = true; ping('fin'); } });
+
+var f = document.getElementById('f'), err = document.getElementById('err'), send = document.getElementById('send');
+function fail(msg) { err.textContent = msg; err.hidden = false; err.focus(); }
+f.addEventListener('submit', function (ev) {
+  ev.preventDefault(); err.hidden = true;
+  if (!f.checkValidity()) { var bad = f.querySelector(':invalid:not(form)'); fail('Il manque une réponse : ' + (bad.closest('label').firstChild.textContent.trim() || 'un champ')); bad.focus(); return; }
+  if (f.site.value) return;
+  var body = new URLSearchParams(new FormData(f)); body.set('type', 'formulaire');
+  if (!ENDPOINT) {
+    var lines = []; body.forEach(function (v, k) { if (['site', 'type', 'accord'].indexOf(k) < 0 && v) lines.push(k + ' : ' + v); });
+    location.href = 'mailto:contact@getreward.pro?subject=' + encodeURIComponent('Démo avocat') + '&body=' + encodeURIComponent(lines.join('\n'));
+    var t0 = document.getElementById('thanks');
+    t0.innerHTML = '<h3>Votre messagerie s\'ouvre avec le message prêt.</h3><p>Il ne reste qu\'à l\'envoyer. Si rien ne s\'ouvre, écrivez à <b>contact@getreward.pro</b> en indiquant votre cabinet : je vous réponds sous 24 h ouvrées.</p>';
+    f.hidden = true; t0.hidden = false; t0.focus(); return;
+  }
+  send.disabled = true; send.textContent = 'Envoi…';
+  fetch(ENDPOINT, {method: 'POST', mode: 'no-cors', body: body}).then(function () {
+    f.hidden = true; var t = document.getElementById('thanks'); t.hidden = false; t.focus();
+  }).catch(function () {
+    send.disabled = false; send.textContent = 'Je veux voir ça sur mes dossiers';
+    fail("L'envoi n'a pas abouti. Réessayez, ou écrivez à contact@getreward.pro.");
+  });
+});
+</script>
+</body>
+</html>
