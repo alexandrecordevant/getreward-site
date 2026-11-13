@@ -121,14 +121,14 @@ footer{text-align:center;font-size:.9rem;color:var(--muted);padding:24px 16px 40
 <script>
 // Script Google (Apps Script) qui écrit dans l'onglet « Démos » du Google Sheet « Prospection GetReward ».
 // Code à déployer : fabrique/scripts/apps-script-demos.gs. Tant qu'il est vide, le formulaire renvoie vers l'e-mail.
-var ENDPOINT = "";
+var ENDPOINT = "https://script.google.com/macros/s/AKfycbzPVY-6_4zWWAqGYzcoIjerqW19hUifjtfenPz4H3H6TxoETXhOvApHGgu87XB1ZAlgvw/exec";
 var ref = "";
 try { ref = (new URLSearchParams(location.search).get('r') || '').replace(/[^0-9A-Za-z-]/g, '').slice(0, 20); } catch (e) {}
 document.getElementById('ref').value = ref;
 
 function ping(type) {
-  if (!ENDPOINT || !ref) return;
-  var b = new URLSearchParams({type: type, domaine: 'courtier', ref: ref});
+  if (!ENDPOINT) return;
+  var b = new URLSearchParams({type: type, domaine: 'courtier', ref: ref || 'direct'});
   try { fetch(ENDPOINT, {method: 'POST', mode: 'no-cors', body: b, keepalive: true}); } catch (e) {}
 }
 ping('vue');

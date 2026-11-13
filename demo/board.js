@@ -133,13 +133,26 @@
     pick(B.start || 0, false);
   };
 
-  // Formulaire : Google Apps Script si ENDPOINT est renseigné, sinon e-mail prérempli.
+  // Script Google (fabrique/scripts/apps-script-demos.gs) : onglet « Démos » du Sheet « Prospection GetReward ».
+  // Toutes les pages de démo l'utilisent par défaut ; l'e-mail prérempli ne sert que si l'envoi échoue.
+  var GR_ENDPOINT = window.GR_ENDPOINT = "https://script.google.com/macros/s/AKfycbzPVY-6_4zWWAqGYzcoIjerqW19hUifjtfenPz4H3H6TxoETXhOvApHGgu87XB1ZAlgvw/exec";
+  window.GRPing = function (type, domaine) {
+    var ref = ''; try { ref = (new URLSearchParams(location.search).get('r') || '').replace(/[^0-9A-Za-z-]/g, '').slice(0, 20); } catch (e) {}
+    try { fetch(GR_ENDPOINT, { method: 'POST', mode: 'no-cors', keepalive: true, body: new URLSearchParams({ type: type, domaine: domaine, ref: ref || 'direct' }) }); } catch (e) {}
+  };
+  // Suit la lecture des vidéos de la page (lecture, fin)
+  window.GRVideo = function (domaine) {
+    document.querySelectorAll('video').forEach(function (v) { var p = false, f = false;
+      v.addEventListener('play', function () { if (!p) { p = true; GRPing('lecture', domaine); } });
+      v.addEventListener('ended', function () { if (!f) { f = true; GRPing('fin', domaine); } }); });
+  };
   window.GRForm = function (domaine, endpoint) {
+    endpoint = endpoint || GR_ENDPOINT;
     var f = document.getElementById('f'); if (!f) return;
     var err = f.querySelector('.err'), send = f.querySelector('button[type=submit]'), label = send.textContent;
     var ref = ''; try { ref = (new URLSearchParams(location.search).get('r') || '').replace(/[^0-9A-Za-z-]/g, '').slice(0, 20); } catch (e) {}
     if (f.ref) f.ref.value = ref;
-    if (endpoint && ref) try { fetch(endpoint, { method: 'POST', mode: 'no-cors', keepalive: true, body: new URLSearchParams({ type: 'vue', domaine: domaine, ref: ref }) }); } catch (e) {}
+    GRPing('vue', domaine); GRVideo(domaine);
     function fail(m) { err.textContent = m; err.hidden = false; err.focus(); }
     f.addEventListener('submit', function (ev) {
       ev.preventDefault(); err.hidden = true;
@@ -156,6 +169,7 @@
         done(); return;
       }
       send.disabled = true; send.textContent = 'Envoi…';
+      if (!data.get('ref')) data.set('ref', 'direct');
       fetch(endpoint, { method: 'POST', mode: 'no-cors', body: data }).then(done).catch(function () {
         send.disabled = false; send.textContent = label; fail("L'envoi n'a pas abouti. Réessayez, ou écrivez à contact@getreward.pro.");
       });
