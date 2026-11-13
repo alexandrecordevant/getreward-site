@@ -1,0 +1,17 @@
+/* Thème avocat : sérieux, institutionnel. Bleu nuit, filet or, titres à empattements, angles nets. */
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap");
+@import url("_commun.css");
+:root{--bg:#f5f3ee;--surface:#fffefb;--ink:#161b26;--muted:#555c6a;--line:#d8d2c4;--accent:#1c2d4f;--accent-soft:#e6e9f0;--on-accent:#fff;
+--gold:#9c7a3c;--ok-soft:#e5ede3;--warn-soft:#f6eedc;
+--font-title:"Libre Baskerville",Georgia,serif;--font-text:"Source Sans 3","Segoe UI",system-ui,sans-serif;--title-weight:700;--title-spacing:0;
+--r-lg:6px;--r-md:4px;--r-sm:3px;--r-btn:3px;--bw:1px;--btn-spacing:.03em;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f131b;--surface:#161c27;--ink:#e9e6df;--muted:#a3a9b4;--line:#2b3242;
+--accent:#a9bde3;--accent-soft:#1e2a40;--on-accent:#0f131b;--gold:#cfae6e;--ok-soft:#1f3320;--warn-soft:#382c12;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f131b;--surface:#161c27;--ink:#e9e6df;--muted:#a3a9b4;--line:#2b3242;
+--accent:#a9bde3;--accent-soft:#1e2a40;--on-accent:#0f131b;--gold:#cfae6e;--ok-soft:#1f3320;--warn-soft:#382c12;color-scheme:dark}
+h1{font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.2}
+.top{border-bottom:1px solid var(--gold);padding-bottom:12px}
+.tag{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em}
+.safe{background:transparent;border:1px solid var(--line);border-left:4px solid var(--gold);font-weight:400;font-style:italic}
+h2,.step h3{color:var(--accent)}
+.cmp b{font-family:var(--font-title)}

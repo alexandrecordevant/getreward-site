@@ -1,0 +1,14 @@
+/* Thème courtier en crédits : l'achat d'une maison, confiance et chaleur. Terre cuite, encre bleue, sans-serif géométrique. */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;600;700&display=swap");
+@import url("_commun.css");
+:root{--bg:#f7f2ec;--surface:#fffdfa;--ink:#16233b;--muted:#566175;--line:#e4d9cc;--accent:#a8481f;--accent-soft:#f7e3d6;--on-accent:#fff;
+--ok-soft:#e3f0e1;--warn-soft:#fbefd2;
+--font-title:"Manrope","Segoe UI",system-ui,sans-serif;--font-text:"Inter","Segoe UI",system-ui,sans-serif;--title-weight:800;--title-spacing:-.02em;
+--r-lg:16px;--r-md:12px;--r-sm:10px;--r-btn:12px;--bw:2px;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#13161d;--surface:#1b2029;--ink:#ece8e2;--muted:#a3abb8;--line:#2d3440;
+--accent:#f0956a;--accent-soft:#3a251b;--on-accent:#1b120d;--ok-soft:#1f3320;--warn-soft:#382c12;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#13161d;--surface:#1b2029;--ink:#ece8e2;--muted:#a3abb8;--line:#2d3440;
+--accent:#f0956a;--accent-soft:#3a251b;--on-accent:#1b120d;--ok-soft:#1f3320;--warn-soft:#382c12;color-scheme:dark}
+.brand::before{content:"⌂ "}
+h2{color:var(--ink)}
+.cmp b{font-family:var(--font-title)}

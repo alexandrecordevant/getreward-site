@@ -1,0 +1,22 @@
+/* Thème micro-crèche : doux et enfantin. Crème, corail, menthe et ciel ; titres ronds ; grands arrondis ; pois en fond. */
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap");
+@import url("_commun.css");
+:root{--bg:#fff7ec;--surface:#ffffff;--ink:#2e2a4d;--muted:#676384;--line:#f1dfc6;--accent:#c2452f;--accent-soft:#ffe5db;--on-accent:#fff;
+--mint:#7cc8a5;--sky:#62ace6;--sun:#ffc857;--ok-soft:#e1f4ea;--warn-soft:#fff1cf;
+--bg-deco:radial-gradient(circle at 12px 12px,rgba(98,172,230,.14) 3px,transparent 3.5px) 0 0/48px 48px,radial-gradient(circle at 36px 36px,rgba(255,200,87,.2) 3px,transparent 3.5px) 0 0/48px 48px,#fff7ec;
+--font-title:"Fredoka","Nunito",system-ui,sans-serif;--font-text:"Nunito","Segoe UI",system-ui,sans-serif;--title-weight:600;--title-spacing:0;
+--r-lg:28px;--r-md:20px;--r-sm:14px;--r-btn:999px;--bw:3px;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#1d1b2e;--surface:#27253c;--ink:#f4efe7;--muted:#bbb5cc;--line:#3b3856;
+--accent:#ff9c83;--accent-soft:#45293a;--on-accent:#1d1b2e;--ok-soft:#1d3528;--warn-soft:#3a3016;
+--bg-deco:radial-gradient(circle at 12px 12px,rgba(98,172,230,.12) 3px,transparent 3.5px) 0 0/48px 48px,#1d1b2e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1d1b2e;--surface:#27253c;--ink:#f4efe7;--muted:#bbb5cc;--line:#3b3856;
+--accent:#ff9c83;--accent-soft:#45293a;--on-accent:#1d1b2e;--ok-soft:#1d3528;--warn-soft:#3a3016;
+--bg-deco:radial-gradient(circle at 12px 12px,rgba(98,172,230,.12) 3px,transparent 3.5px) 0 0/48px 48px,#1d1b2e;color-scheme:dark}
+.brand::after{content:" ✿";color:var(--sun)}
+h1{line-height:1.08}
+.demo .n,.step h3{color:var(--accent)}
+.card:nth-of-type(3n+1){border-color:var(--sun)}
+.card:nth-of-type(3n+2){border-color:var(--mint)}
+.card:nth-of-type(3n){border-color:var(--sky)}
+.cta{box-shadow:0 5px 0 rgba(0,0,0,.14)}
+.cta:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.14)}

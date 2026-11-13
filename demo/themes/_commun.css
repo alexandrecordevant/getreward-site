@@ -1,0 +1,12 @@
+/* Habillage commun des thèmes de domaine (voir fabrique/standards/prospection.md, « Style du domaine »).
+   Chaque thème (avocat.css, creche.css…) fixe les variables ; ces règles les appliquent aux composants des pages. */
+body{font-family:var(--font-text);background:var(--bg-deco,var(--bg))}
+h1,h2,h3,.brand{font-family:var(--font-title);font-weight:var(--title-weight,800);letter-spacing:var(--title-spacing,-.01em)}
+.card,.step,form,.kpi,.item,.idea,.mot,.alert,.tablewrap,.cmp>div,.answer,.thanks,#thanks{border-radius:var(--r-lg)}
+.safe,.mail,.calc,.row,.stats div,.ask,.msg,.tip{border-radius:var(--r-md)}
+input,select,textarea{border-radius:var(--r-sm)}
+.cta{border-radius:var(--r-btn);letter-spacing:var(--btn-spacing,0)}
+.tabs button,.qs button{border-radius:var(--r-btn)}
+video{border-radius:var(--r-lg)!important}
+.card,.step,form,.kpi,.item,.idea,.tablewrap{border-width:var(--bw,2px)}
+td.num{font-family:var(--font-num,inherit)}

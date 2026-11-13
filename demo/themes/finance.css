@@ -1,0 +1,13 @@
+/* Thème pilotage financier : rigueur du chiffre, esprit « lettre financière ». Papier, vert sapin, titres à empattements, chiffres en Plex Mono. */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap");
+@import url("_commun.css");
+:root{--bg:#f3f3ef;--surface:#ffffff;--ink:#121820;--muted:#58606c;--line:#d9d9d1;--accent:#0b5a48;--accent-soft:#dfece7;--on-accent:#fff;
+--s1:#1d5f8a;--s2:#b5652a;--grid:#e6e6df;
+--font-title:"IBM Plex Serif",Georgia,serif;--font-text:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;--font-num:"IBM Plex Mono",Consolas,monospace;
+--title-weight:600;--title-spacing:-.005em;--r-lg:8px;--r-md:6px;--r-sm:4px;--r-btn:6px;--bw:1px;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#10141a;--surface:#171c24;--ink:#e6e8ea;--muted:#a0a8b2;--line:#2a313b;
+--accent:#6cc9ad;--accent-soft:#163029;--on-accent:#0b1a15;--s1:#6fb3e0;--s2:#e3a06a;--grid:#242b34;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10141a;--surface:#171c24;--ink:#e6e8ea;--muted:#a0a8b2;--line:#2a313b;
+--accent:#6cc9ad;--accent-soft:#163029;--on-accent:#0b1a15;--s1:#6fb3e0;--s2:#e3a06a;--grid:#242b34;color-scheme:dark}
+.top{border-bottom:2px solid var(--ink);padding-bottom:10px}
+th{font-family:var(--font-text);letter-spacing:.06em}

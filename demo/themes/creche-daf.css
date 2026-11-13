@@ -1,0 +1,12 @@
+/* Thème DAF d'un réseau de crèches : le monde de la crèche (rondeurs, Nunito) en version gestion. Sauge, prune, crème. */
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700;800&display=swap");
+@import url("_commun.css");
+:root{--bg:#f8f5ef;--surface:#ffffff;--ink:#23283a;--muted:#5f6577;--line:#e3ddd1;--accent:#2f6b5e;--accent-soft:#e0eeea;--on-accent:#fff;
+--s1:#2f6b5e;--s2:#b04a6a;--grid:#ebe5da;
+--font-title:"Fredoka","Nunito",system-ui,sans-serif;--font-text:"Nunito","Segoe UI",system-ui,sans-serif;--title-weight:600;--title-spacing:0;
+--r-lg:22px;--r-md:16px;--r-sm:12px;--r-btn:999px;--bw:2px;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#151a1f;--surface:#1e252b;--ink:#ebeee9;--muted:#a8b0b4;--line:#2f3a3f;
+--accent:#7fc4b2;--accent-soft:#1c3630;--on-accent:#10201b;--s1:#7fc4b2;--s2:#e58aa5;--grid:#28333a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#151a1f;--surface:#1e252b;--ink:#ebeee9;--muted:#a8b0b4;--line:#2f3a3f;
+--accent:#7fc4b2;--accent-soft:#1c3630;--on-accent:#10201b;--s1:#7fc4b2;--s2:#e58aa5;--grid:#28333a;color-scheme:dark}
+.brand::after{content:" ✿";color:#e9b949}
