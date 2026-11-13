@@ -38,6 +38,8 @@
 .stats span{font-size:.85rem;color:var(--muted)}
 .wrapt td{white-space:normal;min-width:120px}
 .link{font-weight:700;color:var(--accent)}
+.docs th[scope=row]{text-transform:none;letter-spacing:0;font-size:.95rem;color:var(--ink);font-weight:700;white-space:normal;min-width:200px}
+.docs td{white-space:nowrap}
 </style>
 <link rel="stylesheet" href="../themes/creche.css">
 </head>
@@ -47,32 +49,39 @@
  <div class="wrap">
   <div class="top"><a class="brand" href="/">GetReward</a><span class="tag">Démos pour les micro-crèches · réseau fictif</span></div>
   <p class="kicker">Ce que je fais pour vous</p>
-  <h1>Je vous installe de petits assistants IA qui font la paperasse de la crèche à votre place.</h1>
-  <p class="sub">Ce sont de petits scripts IA posés sur vos outils de tous les jours. Vous leur parlez comme à une collègue, ils préparent, vous validez.</p>
+  <h1>Je vous installe de petits assistants IA qui tiennent à jour les documents obligatoires de toutes vos crèches.</h1>
+  <p class="sub">DUERP, plan de mise en sûreté, protocoles, règlement, projet d'établissement : dans chaque crèche, il faut les avoir, les mettre à jour et ne rien oublier. Ce sont de petits scripts IA posés sur votre dossier partagé : ils font le point, préparent les brouillons et vous rappellent les échéances.</p>
   <ol class="four" aria-label="Comment ça marche, en 4 étapes">
-   <li><b>J'installe les assistants</b><span>Sur vos outils actuels : mail et dossier partagé. Je vous montre, c'est tout.</span></li>
-   <li><b>Vous demandez en une phrase</b><span>« Prépare la visite PMI », « Réponds à Julie sur sa paie »…</span></li>
-   <li><b>L'assistant prépare</b><span>L'audit avant la PMI, la réponse à une salariée, le tableau de l'équipe.</span></li>
-   <li><b>Vous relisez et validez</b><span>La direction décide, rien ne part sans vous.</span></li>
+   <li><b>J'installe les assistants</b><span>Sur votre dossier partagé et votre mail. Je vous montre, c'est tout.</span></li>
+   <li><b>Vous demandez en une phrase</b><span>« Fais le point sur les documents des 4 crèches. »</span></li>
+   <li><b>L'assistant prépare</b><span>Ce qui manque, ce qui est périmé, et les brouillons à compléter.</span></li>
+   <li><b>Vous relisez et validez</b><span>La direction signe, rien ne part sans vous.</span></li>
   </ol>
   <div class="mini" aria-label="Un exemple">
-   <div><span class="lbl">Vous écrivez</span><p class="say">« J'ai la visite PMI le 15 décembre aux Coquelicots. Prépare-moi l'audit. »</p></div>
+   <div><span class="lbl">Vous écrivez</span><p class="say">« Fais le point sur les documents obligatoires de nos 4 crèches et prépare ce qui manque. »</p></div>
    <div class="arrow" aria-hidden="true">→</div>
    <div><span class="lbl">L'assistant vous rend</span>
     <ul>
-     <li class="warn"><i>!</i><span>5 points à corriger avant la visite, chacun avec son texte</span></li>
-     <li class="ok"><i>✓</i><span>Ce qui est déjà en règle, en vert</span></li>
-     <li class="ok"><i>✓</i><span>La liste des 5 documents à sortir pour le jour J</span></li>
+     <li class="warn"><i>!</i><span>Les Lucioles : pas de plan de mise en sûreté. Le brouillon est prêt, à compléter avec la directrice</span></li>
+     <li class="warn"><i>!</i><span>DUERP de 2 crèches à mettre à jour : dernière version en 2024</span></li>
+     <li class="ok"><i>✓</i><span>Le calendrier des mises à jour, avec un rappel un mois avant chaque échéance</span></li>
     </ul>
    </div>
   </div>
-  <p class="gainline"><span><b>Avant :</b> une demi-journée à tout vérifier</span><span><b>Avec l'assistant :</b> 20 min pour relire la fiche</span><small>estimations sur un exemple fictif</small></p>
-  <a class="cta" href="#demande">Je veux ça pour ma crèche</a>
+  <ul class="benef" aria-label="Ce que ça vous apporte">
+   <li><b>Structuré</b><span>les mêmes documents, rangés pareil dans chaque crèche</span></li>
+   <li><b>Du temps gagné</b><span>le point sur 4 crèches en quelques minutes</span></li>
+   <li><b>La bonne réponse</b><span>à jour des textes 2026, chaque point avec sa source</span></li>
+   <li><b>Rapide</b><span>une question, la réponse tout de suite</span></li>
+   <li><b>Pas d'oubli</b><span>un rappel avant chaque échéance</span></li>
+  </ul>
+  <p class="gainline"><span><b>Avant :</b> des heures à rouvrir chaque classeur, crèche par crèche</span><span><b>Avec l'assistant :</b> 20 min pour relire le point et les brouillons</span><small>estimations sur un exemple fictif</small></p>
+  <a class="cta" href="#demande">Je veux ça pour mes crèches</a>
  </div>
 </section>
 <section class="band" style="padding-top:0">
  <div class="wrap">
-  <div class="vidhead"><h2>Le même exemple en vidéo · 1 min 25</h2><p class="note">Reconstitution d'écran : l'assistant fait l'exemple ci-dessus, du début à la fin. Muette, sous-titrée.</p></div>
+  <div class="vidhead"><h2>Un exemple en vidéo · 1 min 25</h2><p class="note">Reconstitution d'écran : l'assistant vérifie tous les documents d'une crèche avant la visite de la PMI. Muette, sous-titrée.</p></div>
   <video id="v" src="demo-creche.mp4" poster="affiche.jpg" controls playsinline muted preload="metadata" style="width:100%;aspect-ratio:16/9;border-radius:20px;background:#000;border:2px solid var(--line)"></video>
   <p class="note">1 min 25 : l'audit blanc PMI d'une crèche fictive, de la demande de la directrice à la fiche rangée dans son dossier.</p>
  </div>
@@ -82,20 +91,47 @@
   
   <p class="kicker">En détail</p>
   <h2>Ce que l'IA prépare pour une micro-crèche.</h2>
-  <p class="sub">Quatre démos sur le « Réseau Exemple », inventé de toutes pièces : une crèche avec des erreurs volontaires, les questions d'une salariée, le suivi de l'équipe et les chiffres du réseau. À chaque fois, l'IA prépare et la direction décide.</p>
+  <p class="sub">Cinq démos sur le « Réseau Exemple », inventé de toutes pièces : les documents obligatoires des 4 crèches, une crèche avec des erreurs volontaires, les questions d'une salariée, le suivi de l'équipe et les chiffres du réseau. À chaque fois, l'IA prépare et la direction décide.</p>
   <div class="tabs">
-   <a class="cta" href="#pmi" style="font-size:.95rem;padding:10px 16px">1. Audit blanc PMI</a>
-   <a class="cta" href="#paie" style="font-size:.95rem;padding:10px 16px">2. Question de paie</a>
-   <a class="cta" href="#rh" style="font-size:.95rem;padding:10px 16px">3. Tableau RH</a>
-   <a class="cta" href="#finance" style="font-size:.95rem;padding:10px 16px">4. Pilotage financier</a>
+   <a class="cta" href="#docs" style="font-size:.95rem;padding:10px 16px">1. Documents obligatoires</a>
+   <a class="cta" href="#pmi" style="font-size:.95rem;padding:10px 16px">2. Audit blanc PMI</a>
+   <a class="cta" href="#paie" style="font-size:.95rem;padding:10px 16px">3. Question de paie</a>
+   <a class="cta" href="#rh" style="font-size:.95rem;padding:10px 16px">4. Tableau RH</a>
+   <a class="cta" href="#finance" style="font-size:.95rem;padding:10px 16px">5. Pilotage financier</a>
   </div>
  </div>
 </section>
 
-<!-- 1. Audit blanc PMI -->
+<!-- 1. Documents obligatoires -->
+<section class="band" id="docs" style="padding-top:0">
+ <div class="wrap card demo">
+  <div class="head"><span class="n">1</span><h2>Les documents obligatoires de toutes vos crèches, tenus à jour</h2></div>
+  <div class="ask"><b>La direction demande</b>Fais le point sur les documents obligatoires de nos 4 crèches, prépare ce qui manque et rappelle-moi les échéances.</div>
+  <p>L'assistant ouvre le dossier partagé de chaque crèche, retrouve chaque document, lit sa date et le compare aux textes en vigueur. Il rend un tableau simple : ce qui est à jour, ce qui est à revoir, ce qui manque.</p>
+  <div class="tablewrap"><table class="docs">
+   <thead><tr><th scope="col">Document</th><th scope="col">Coquelicots</th><th scope="col">Tournesols</th><th scope="col">Lucioles</th><th scope="col">Hirondelles</th></tr></thead>
+   <tbody>
+     <tr><th scope="row">Projet d'établissement</th><td><span class="pill ok">✓ à jour</span></td><td><span class="pill ok">✓ à jour</span></td><td><span class="pill warn">! à revoir, 2023</span></td><td><span class="pill ok">✓ à jour</span></td></tr>
+     <tr><th scope="row">Règlement de fonctionnement</th><td><span class="pill ok">✓ à jour</span></td><td><span class="pill warn">! avant les règles 2026</span></td><td><span class="pill ok">✓ à jour</span></td><td><span class="pill ok">✓ à jour</span></td></tr>
+     <tr><th scope="row">Plan de mise en sûreté (PMS)</th><td><span class="pill ok">✓ à jour</span></td><td><span class="pill ok">✓ à jour</span></td><td><span class="pill bad">✕ manquant</span></td><td><span class="pill warn">! exercice non fait</span></td></tr>
+     <tr><th scope="row">Autres protocoles : urgences, hygiène, maltraitance, sorties…</th><td><span class="pill ok">✓ à jour</span></td><td><span class="pill warn">! sorties manquant</span></td><td><span class="pill ok">✓ à jour</span></td><td><span class="pill ok">✓ à jour</span></td></tr>
+     <tr><th scope="row">DUERP, risques des salariés</th><td><span class="pill ok">✓ à jour</span></td><td><span class="pill warn">! version 2024</span></td><td><span class="pill warn">! version 2024</span></td><td><span class="pill ok">✓ à jour</span></td></tr>
+     <tr><th scope="row">Registre de sécurité et exercices</th><td><span class="pill ok">✓ à jour</span></td><td><span class="pill ok">✓ à jour</span></td><td><span class="pill warn">! évacuation à faire</span></td><td><span class="pill ok">✓ à jour</span></td></tr>
+   </tbody>
+  </table></div>
+  <div class="rows">
+   <div class="row"><span class="pill warn">! Brouillon</span><span><b>Plan de mise en sûreté des Lucioles :</b> préparé sur le modèle de celui des Coquelicots, avec les points propres aux Lucioles laissés en blanc (issues, lieu de confinement, contacts). La directrice complète et signe.</span></div>
+   <div class="row"><span class="pill warn">! Brouillon</span><span><b>DUERP des Tournesols et des Lucioles :</b> la version 2024 reprise, avec les changements de l'année à confirmer (nouvelle salle, nouvelle salariée).</span></div>
+   <div class="row"><span class="pill ok">✓ Rappels</span><span><b>Calendrier :</b> chaque document a sa date de mise à jour. Un mail de rappel part vers la direction un mois avant l'échéance.</span></div>
+  </div>
+  <div class="refuse"><b>Ce qu'elle ne fait pas</b>Signer à la place de la direction, inventer ce qu'elle ne voit pas dans vos documents (le brouillon laisse en blanc ce qu'il faut vérifier sur place), ou lire les dossiers des enfants.</div>
+ </div>
+</section>
+
+<!-- 2. Audit blanc PMI -->
 <section class="band" id="pmi" style="padding-top:0">
  <div class="wrap card demo">
-  <div class="head"><span class="n">1</span><h2>L'audit blanc avant la visite de la PMI</h2></div>
+  <div class="head"><span class="n">2</span><h2>L'audit blanc avant la visite de la PMI</h2></div>
   <div class="ask"><b>La directrice demande</b>J'ai une visite PMI aux Coquelicots le 15 décembre : prépare mon audit blanc et dis-moi les pièces à vérifier, sans mettre conforme ce que je ne t'ai pas fourni.</div>
   <p>L'IA lit le dossier de la crèche (règlement, projet, protocoles, plannings, diplômes, registres) et le compare point par point aux textes en vigueur, y compris ceux qui ont changé en 2026. Elle rend une fiche de deux pages : rouge, orange, vert.</p>
   <div class="stats">
@@ -120,7 +156,7 @@
 <!-- 2. Question de paie -->
 <section class="band" id="paie" style="padding-top:0">
  <div class="wrap card demo">
-  <div class="head"><span class="n">2</span><h2>La question de paie d'une salariée</h2></div>
+  <div class="head"><span class="n">3</span><h2>La question de paie d'une salariée</h2></div>
   <div class="cols">
    <div class="mail"><div class="h">De : Camille, auxiliaire de puériculture · Objet : ma fiche de paie d'octobre</div>En octobre j'ai remplacé une collègue plusieurs fois, ça me fait 12 heures de plus que mon contrat. Elles sont payées au même taux que d'habitude.
 Une amie m'a dit que les heures en plus d'un temps partiel sont payées 11 % de plus. Est-ce que c'est normal ?</div>
@@ -146,7 +182,7 @@ Une amie m'a dit que les heures en plus d'un temps partiel sont payées 11 % de 
 <!-- 3. Tableau RH -->
 <section class="band" id="rh" style="padding-top:0">
  <div class="wrap card demo">
-  <div class="head"><span class="n">3</span><h2>Le tableau RH du réseau</h2></div>
+  <div class="head"><span class="n">4</span><h2>Le tableau RH du réseau</h2></div>
   <p>Chaque mois, l'IA rassemble ce qui manque dans les dossiers de l'équipe et ce qui arrive à échéance, crèche par crèche. Elle ne lit pas les dossiers médicaux : seulement les dates et les pièces reçues ou non.</p>
   <div class="tablewrap"><table class="wrapt">
    <thead><tr><th>Crèche</th><th class="num">Équipe</th><th class="num">Absences en oct.</th><th>Pièces manquantes</th><th>À prévoir</th><th>État</th></tr></thead>
@@ -166,7 +202,7 @@ Une amie m'a dit que les heures en plus d'un temps partiel sont payées 11 % de 
 <!-- 4. Pilotage financier -->
 <section class="band" id="finance" style="padding-top:0">
  <div class="wrap card demo">
-  <div class="head"><span class="n">4</span><h2>Le pilotage financier, crèche par crèche</h2></div>
+  <div class="head"><span class="n">5</span><h2>Le pilotage financier, crèche par crèche</h2></div>
   <p>Occupation et coût des places vides, masse salariale, impayés des familles et des entreprises, trésorerie à 13 semaines : le board du DAF ou du gérant, préparé chaque mois, avec un commentaire en mots simples.</p>
   <div class="stats">
    <div><b>87 %</b><span>d'occupation du réseau</span></div>

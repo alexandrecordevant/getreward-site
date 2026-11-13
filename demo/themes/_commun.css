@@ -35,6 +35,12 @@ td.num{font-family:var(--font-num,inherit)}
  .mini li:nth-child(1){animation-delay:.6s}.mini li:nth-child(2){animation-delay:1.3s}.mini li:nth-child(3){animation-delay:2s}
  @keyframes minirise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 }
+.benef{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.benef li{border-top:4px solid var(--accent);background:var(--surface);border-radius:var(--r-md);padding:10px 12px;display:grid;gap:2px}
+.benef b{font-family:var(--font-title);font-size:1.02rem}
+.benef span{color:var(--muted);font-size:.88rem;line-height:1.35}
+@media(max-width:900px){.benef{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:440px){.benef{grid-template-columns:minmax(0,1fr)}}
 .gainline{display:flex;gap:10px 22px;flex-wrap:wrap;align-items:baseline;font-size:1.02rem}
 .gainline small{color:var(--muted)}
 .vidhead{display:grid;gap:6px}
